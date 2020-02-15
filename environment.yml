@@ -1,0 +1,6 @@
+name: myproject
+channels:
+  - defaults
+dependencies:
+  - python=3.7.3
+  - pip

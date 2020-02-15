@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "myproject"
+version = "0.1"
+description = "Master package project skeleton"
+readme = "README.md"
+
+authors = [
+    "Jiri Koutny <jiri.koutny@datasentics.com>"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+include = ["*.yaml", "*.json"]
+
+packages = [
+    { include = "myproject", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "~3.7.3"
+pyfony = "^0.4.2"
+databricks-bundle = "0.2.*"
+
+[tool.poetry.dev-dependencies]
+databricks-connect = "6.2.*"
+dbx-deploy = "^0.8.2"
+pylint = "2.4.*"
+py4j = "^0.10.9"
+
+[app]
+container-init = ["myproject.ContainerInit", "initContainer"]
