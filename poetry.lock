@@ -189,7 +189,7 @@ description = "Databrics Deployment Tool"
 name = "dbx-deploy"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.8.3"
+version = "0.8.4"
 
 [package.dependencies]
 console-bundle = ">=0.2.0,<0.3.0"
@@ -884,8 +884,8 @@ databricks-connect = [
     {file = "databricks-connect-6.2.0.tar.gz", hash = "sha256:b09a69e2bc2419361d044b93cb873715e3a006f8ef6ebd14f567ea3195eecee6"},
 ]
 dbx-deploy = [
-    {file = "dbx-deploy-0.8.3.tar.gz", hash = "sha256:91004d9908b523db748be8a5ed046b94979461be5695d94948cc33dede28b863"},
-    {file = "dbx_deploy-0.8.3-py3-none-any.whl", hash = "sha256:0654741477baf7f0442871549e84f2df711392ca30d41cb26354b030cd586d0f"},
+    {file = "dbx-deploy-0.8.4.tar.gz", hash = "sha256:5241fbbb7c7cef16ae128758566b7261d87be0f44a1e06b3eb684f53f62a03c7"},
+    {file = "dbx_deploy-0.8.4-py3-none-any.whl", hash = "sha256:9449df8d96e88c52d3865c164cdef8453d1e3fd60ac2ed726306076e81eefda1"},
 ]
 dbx-notebook-exporter = [
     {file = "dbx-notebook-exporter-0.2.6.tar.gz", hash = "sha256:071b321c0c4906fd158ccd9ec264b345ea5bb954fea114d7e154a71b532fc14f"},
