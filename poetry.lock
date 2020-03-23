@@ -223,6 +223,20 @@ version = "4.4.2"
 
 [[package]]
 category = "dev"
+description = "Deep Difference and Search of any Python object/data."
+name = "deepdiff"
+optional = false
+python-versions = ">=3.5"
+version = "4.3.2"
+
+[package.dependencies]
+ordered-set = ">=3.1.1"
+
+[package.extras]
+murmur = ["mmh3"]
+
+[[package]]
+category = "dev"
 description = "XML bomb protection for Python stdlib modules"
 name = "defusedxml"
 optional = false
@@ -479,6 +493,14 @@ traitlets = ">=4.1"
 
 [package.extras]
 test = ["testpath", "pytest", "pytest-cov"]
+
+[[package]]
+category = "dev"
+description = "A MutableSet that remembers its order, so that every entry has an index."
+name = "ordered-set"
+optional = false
+python-versions = ">=2.7"
+version = "3.1.1"
 
 [[package]]
 category = "dev"
@@ -786,7 +808,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "3755188cf48a6acb3ef4ab9129a2508d6d88eee3cbdb034ef1bea3c6bf49afe7"
+content-hash = "6bbca7c751a96032528079fb9607ad8417c8820d51cd1057f0a13a52d4eb9870"
 python-versions = "~3.7.3"
 
 [metadata.files]
@@ -894,6 +916,10 @@ dbx-notebook-exporter = [
 decorator = [
     {file = "decorator-4.4.2-py2.py3-none-any.whl", hash = "sha256:41fa54c2a0cc4ba648be4fd43cff00aedf5b9465c9bf18d64325bc225f08f760"},
     {file = "decorator-4.4.2.tar.gz", hash = "sha256:e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"},
+]
+deepdiff = [
+    {file = "deepdiff-4.3.2-py3-none-any.whl", hash = "sha256:59fc1e3e7a28dd0147b0f2b00e3e27181f0f0ef4286b251d5f214a5bcd9a9bc4"},
+    {file = "deepdiff-4.3.2.tar.gz", hash = "sha256:91360be1d9d93b1d9c13ae9c5048fa83d9cff17a88eb30afaa0d7ff2d0fee17d"},
 ]
 defusedxml = [
     {file = "defusedxml-0.6.0-py2.py3-none-any.whl", hash = "sha256:6687150770438374ab581bb7a1b327a847dd9c5749e396102de3fad4e8a3ef93"},
@@ -1015,6 +1041,9 @@ nbconvert = [
 nbformat = [
     {file = "nbformat-5.0.4-py3-none-any.whl", hash = "sha256:f4bbbd8089bd346488f00af4ce2efb7f8310a74b2058040d075895429924678c"},
     {file = "nbformat-5.0.4.tar.gz", hash = "sha256:562de41fc7f4f481b79ab5d683279bf3a168858268d4387b489b7b02be0b324a"},
+]
+ordered-set = [
+    {file = "ordered-set-3.1.1.tar.gz", hash = "sha256:a7bfa858748c73b096e43db14eb23e2bc714a503f990c89fac8fab9b0ee79724"},
 ]
 pandocfilters = [
     {file = "pandocfilters-1.4.2.tar.gz", hash = "sha256:b3dd70e169bb5449e6bc6ff96aea89c5eea8c5f6ab5e207fc2f521a2cf4a0da9"},

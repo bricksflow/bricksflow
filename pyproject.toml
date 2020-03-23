@@ -30,6 +30,7 @@ databricks-connect = "6.2.*"
 dbx-deploy = "^0.8.2"
 pylint = "2.4.*"
 py4j = "^0.10.9"
+deepdiff = "^4.3.2"
 
 [app]
 container-init = ["myproject.ContainerInit", "initContainer"]
