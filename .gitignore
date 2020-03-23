@@ -6,13 +6,5 @@ dist/*
 build
 .DS_Store
 *-checkpoint.ipynb
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.devcontainer/.databricks-connect
-.history/*
 .idea/workspace.xml
-deploy_prod.sh
 !.gitkeep
