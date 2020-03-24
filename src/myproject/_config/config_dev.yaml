@@ -5,8 +5,8 @@ imports:
 parameters:
   databricks:
     address: https://westeurope.azuredatabricks.net
-    token: dapib2946d4e4763446d3e40b086521b0cbf
-    clusterId: 0302-161725-budge83
-    orgId: 8394585307568385
+    token: '%env(DBX_TOKEN)%'
+    clusterId: '%env(DBX_CLUSTER)%'
+    orgId: '%env(DBX_ORG_ID)%'
     projectRoot: '/{currentBranch}'
     createReleases: False
