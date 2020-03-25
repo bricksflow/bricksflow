@@ -9,18 +9,16 @@ This project is based on the [Pyfony framework](https://github.com/DataSentics/p
 * [databricks-bundle](https://github.com/DataSentics/databricks-bundle) - SparkSession & DBUtils initialization for both the **local** (DBX Connect) and **online** (Databricks UI) environments
 * [dbx-deploy](https://github.com/DataSentics/dbx-deploy) - Spark-based applications deployment automation for Databricks
 
-
 ## 2. Local environment setup
 
 The following software needs to be installed first:
-  * [Java 8](https://www.java.com/en/download/) (Java 11 **is not** supported)
-  * [PyCharm Community or Pro](https://www.jetbrains.com/pycharm/download/)
   * [Miniconda package manager](https://docs.conda.io/en/latest/miniconda.html)
   * [Git for Windows](https://git-scm.com/download/win) or standard Git in Linux (_apt-get install git_)
+  * [PyCharm Community or Pro](https://www.jetbrains.com/pycharm/download/) with the [EnvFile plugin](https://plugins.jetbrains.com/plugin/7861-envfile) installed
 
 Clone the repo now and prepare the package environment:
 
-* On **Windows**, use [Git Bash](docs/git-bash.png).
+* On **Windows**, use Git Bash.
 * On **Linux/Mac**, the use standard console 
 
 ```bash
@@ -29,7 +27,11 @@ $ cd master-package-example
 $ ./env-init.sh
 ```
 
-After the environment setup is complete, activate the Conda environment:
+When the environment setup is completed, update the `[PROJECT_ROOT]/.env` file with the appropriate values.
+
+![alt text](docs/dotenv.png)
+
+Now activate the Conda environment:
 
 ```bash
 $ conda activate $PWD/.venv
@@ -44,3 +46,4 @@ $ ca
 ## 3. Important scripts
 
 1. ```./pylint.sh``` - checks coding standards
+1. ```./run_tests.sh``` - runs tests
