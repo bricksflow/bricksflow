@@ -189,12 +189,12 @@ description = "Databrics Deployment Tool"
 name = "dbx-deploy"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.8.4"
+version = "0.8.7"
 
 [package.dependencies]
 console-bundle = ">=0.2.0,<0.3.0"
 databricks-api = ">=0.3.0,<0.4.0"
-dbx-notebook-exporter = ">=0.2.0,<0.3.0"
+dbx-notebook-exporter = ">=0.4.0,<0.5.0"
 nbconvert = ">=5.6.0,<5.7.0"
 pyfony-bundles = ">=0.2.0,<0.3.0"
 pygit2 = ">=0.28.0,<0.29.0"
@@ -207,7 +207,7 @@ description = "Databrics Notebook Exporter"
 name = "dbx-notebook-exporter"
 optional = false
 python-versions = ">=3.5.2"
-version = "0.2.6"
+version = "0.4.0"
 
 [package.dependencies]
 ipython = ">=7,<8"
@@ -906,12 +906,12 @@ databricks-connect = [
     {file = "databricks-connect-6.2.0.tar.gz", hash = "sha256:b09a69e2bc2419361d044b93cb873715e3a006f8ef6ebd14f567ea3195eecee6"},
 ]
 dbx-deploy = [
-    {file = "dbx-deploy-0.8.4.tar.gz", hash = "sha256:5241fbbb7c7cef16ae128758566b7261d87be0f44a1e06b3eb684f53f62a03c7"},
-    {file = "dbx_deploy-0.8.4-py3-none-any.whl", hash = "sha256:9449df8d96e88c52d3865c164cdef8453d1e3fd60ac2ed726306076e81eefda1"},
+    {file = "dbx-deploy-0.8.7.tar.gz", hash = "sha256:9a7e7376ddf4fa170d6a060522a3a260e43b60f1f52e0d2312b93958ea773c20"},
+    {file = "dbx_deploy-0.8.7-py3-none-any.whl", hash = "sha256:c153a916c7ae87681a98af2bd2bb5f0897aacfd18a730ae71807e785a316d2c3"},
 ]
 dbx-notebook-exporter = [
-    {file = "dbx-notebook-exporter-0.2.6.tar.gz", hash = "sha256:071b321c0c4906fd158ccd9ec264b345ea5bb954fea114d7e154a71b532fc14f"},
-    {file = "dbx_notebook_exporter-0.2.6-py3-none-any.whl", hash = "sha256:b2e959ae973320a447231bcc50eb4e626d53fd5111ea871591977b3f956615ca"},
+    {file = "dbx-notebook-exporter-0.4.0.tar.gz", hash = "sha256:e3fd919ef3acabbd82ef1188633f1f9f8cfa6f7a08676f1a6833f912a91fab7b"},
+    {file = "dbx_notebook_exporter-0.4.0-py3-none-any.whl", hash = "sha256:eeb61fe7ed9d6b85d091a00b01a4bfe72da34c76e7790698ea4dd37a02730b26"},
 ]
 decorator = [
     {file = "decorator-4.4.2-py2.py3-none-any.whl", hash = "sha256:41fa54c2a0cc4ba648be4fd43cff00aedf5b9465c9bf18d64325bc225f08f760"},
