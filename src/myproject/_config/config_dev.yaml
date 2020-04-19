@@ -9,4 +9,3 @@ parameters:
     clusterId: '%env(DBX_CLUSTER)%'
     orgId: '%env(DBX_ORG_ID)%'
     projectRoot: '/{currentBranch}'
-    createReleases: False

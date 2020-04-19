@@ -10,4 +10,4 @@ spark = container.get(SparkSession) # type: SparkSession
 from loggerbundle.LoggerFactory import LoggerFactory
 loggerFactory = container.get(LoggerFactory) # type: LoggerFactory
 
-parameters = container.getConfig()
+parameters = container.getParameters()

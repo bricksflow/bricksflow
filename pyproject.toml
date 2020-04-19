@@ -22,12 +22,12 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "~3.7.3"
-pyfony = "^0.4.2"
-databricks-bundle = "0.2.*"
+pyfony = "^0.4.3"
+databricks-bundle = "0.3.*"
 
 [tool.poetry.dev-dependencies]
-databricks-connect = "6.2.*"
-dbx-deploy = "^0.8.2"
+databricks-connect = "6.4.*"
+dbx-deploy = "^0.9.6"
 pylint = "2.4.*"
 py4j = "^0.10.9"
 deepdiff = "^4.3.2"

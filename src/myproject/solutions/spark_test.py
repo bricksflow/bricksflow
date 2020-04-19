@@ -1,5 +1,5 @@
 # Databricks notebook source
-# MAGIC %run ../app/install_master_package.job
+# MAGIC %run ../app/install_master_package
 
 # COMMAND ----------
 

@@ -9,4 +9,3 @@ parameters:
     clusterId: ''
     orgId: ''
     projectRoot: '/{currentBranch}'
-    createReleases: False

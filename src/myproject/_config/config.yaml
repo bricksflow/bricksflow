@@ -5,13 +5,13 @@ parameters:
   dbxdeploy:
     databricks:
       host: '%databricks.address%'
-      user: jiri.koutny@datasentics.com
       token: '%databricks.token%'
       clusterId: '%databricks.clusterId%'
       projectRoot: '%databricks.projectRoot%'
-      createReleases: '%databricks.createReleases%'
     notebooks:
-      databricksNotebookGlobs: ['myproject/solutions/**/*.py']
+      paths:
+        - 'myproject/app/install_master_package.py'
+        - 'myproject/solutions/**/*.py'
 
   databricksbundle:
     databricksConnect:
@@ -20,3 +20,4 @@ parameters:
         token: '%databricks.token%'
         clusterId: '%databricks.clusterId%'
         orgId: '%databricks.orgId%'
+        port: 15001
