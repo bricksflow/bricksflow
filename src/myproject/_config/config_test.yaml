@@ -8,4 +8,4 @@ parameters:
     token: ''
     clusterId: ''
     orgId: ''
-    projectRoot: '/{currentBranch}'
+    workspaceBaseDir: '/{currentBranch}'

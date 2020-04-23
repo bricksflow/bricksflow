@@ -8,4 +8,4 @@ parameters:
     token: '%env(DBX_TOKEN)%'
     clusterId: '%env(DBX_CLUSTER)%'
     orgId: '%env(DBX_ORG_ID)%'
-    projectRoot: '/{currentBranch}'
+    workspaceBaseDir: '/{currentBranch}'

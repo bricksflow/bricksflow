@@ -192,7 +192,7 @@ description = "Databrics Deployment Tool"
 name = "dbx-deploy"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.9.6"
+version = "0.9.11"
 
 [package.dependencies]
 console-bundle = ">=0.2.0,<0.3.0"
@@ -863,7 +863,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "0de3d4659ddf0e1f06d61b34a39ac2c6b0c9354182a3ab9a4c336a077659c686"
+content-hash = "685befdd315c05dfdb139b2376e87ee9adacd3104d5031fa25ba95b1cf217eb2"
 python-versions = "~3.7.3"
 
 [metadata.files]
@@ -961,8 +961,8 @@ databricks-connect = [
     {file = "databricks-connect-6.4.1.tar.gz", hash = "sha256:4f5014042da74e0b3ad12bef01d9f4e4de3a198b8da1f1c64d3b717254326530"},
 ]
 dbx-deploy = [
-    {file = "dbx-deploy-0.9.6.tar.gz", hash = "sha256:aa491185f91ab86995e019f6e3b2c5c397a21353a1a4b14c1a058f4158766023"},
-    {file = "dbx_deploy-0.9.6-py3-none-any.whl", hash = "sha256:bc3d003f908caa83db6becc0a7b0c10fb8f4b2d9ad680aab8e2935a9dd6affb8"},
+    {file = "dbx-deploy-0.9.11.tar.gz", hash = "sha256:d9a77f81f25dbfcef9ada6394341d5ccb04f442c93bb947f325f2bdcb190f6f5"},
+    {file = "dbx_deploy-0.9.11-py3-none-any.whl", hash = "sha256:d02a4f9afc4f494772dda6b4e2074daf575a30edfbcdc04c142214b8ed104d15"},
 ]
 dbx-notebook-exporter = [
     {file = "dbx-notebook-exporter-0.4.0.tar.gz", hash = "sha256:e3fd919ef3acabbd82ef1188633f1f9f8cfa6f7a08676f1a6833f912a91fab7b"},

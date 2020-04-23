@@ -3,15 +3,18 @@ parameters:
     myvalue: 'This is a sample string config value'
 
   dbxdeploy:
+    source:
+      notebooks:
+        baseDir: 'src/myproject'
+        patterns:
+          - 'app/install_master_package.py'
+          - 'solutions/**/*.py'
+    target:
+      workspaceBaseDir: '%databricks.workspaceBaseDir%'
     databricks:
       host: '%databricks.address%'
       token: '%databricks.token%'
       clusterId: '%databricks.clusterId%'
-      projectRoot: '%databricks.projectRoot%'
-    notebooks:
-      paths:
-        - 'myproject/app/install_master_package.py'
-        - 'myproject/solutions/**/*.py'
 
   databricksbundle:
     databricksConnect:
