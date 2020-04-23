@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "myproject"
 version = "0.1"
-description = "Master package project skeleton"
+description = "Bricksflow project skelefon"
 readme = "README.md"
 
 authors = [

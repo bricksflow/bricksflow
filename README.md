@@ -1,4 +1,4 @@
-# Master Package Example Project
+# Bricksflow Example Project
 
 ## 1. Project details
 
@@ -22,8 +22,8 @@ Clone the repo now and prepare the package environment:
 * On **Linux/Mac**, the use standard console 
 
 ```bash
-$ git clone https://github.com/DataSentics/master-package-example.git
-$ cd master-package-example
+M$ git clone https://github.com/DataSentics/bricksflow.git
+$ cd bricksflow
 $ ./env-init.sh
 ```
 
