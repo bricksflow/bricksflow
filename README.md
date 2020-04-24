@@ -1,13 +1,24 @@
 # Bricksflow Example Project
 
-## 1. Project details
+## 1. What's inside
 
-This project is based on the [Pyfony framework](https://github.com/DataSentics/pyfony) extended with the following Pyfony bundles:
+This is a Bricksflow project skeleton covering our **best practices for Databricks projects**:
 
-* [console-bundle](https://github.com/DataSentics/console-bundle) - commands for command line & Databricks automation
-* [logger-bundle](https://github.com/DataSentics/logger-bundle) - logging to standard output & Azure Application Insights
-* [databricks-bundle](https://github.com/DataSentics/databricks-bundle) - SparkSession & DBUtils initialization for both the **local** (DBX Connect) and **online** (Databricks UI) environments
-* [dbx-deploy](https://github.com/DataSentics/dbx-deploy) - Spark-based applications deployment automation for Databricks
+1. „One code for all environments“ (local IDE + Databricks UI)
+
+1. Configuration management
+
+1. Dependency management (packages)
+
+1. Tables & schema management
+
+1. Testing
+
+1. Deployment
+
+1. Productionalization
+
+Let's **manage complex DataLakes together**!
 
 ## 2. Local environment setup
 
@@ -22,7 +33,7 @@ Clone the repo now and prepare the package environment:
 * On **Linux/Mac**, the use standard console 
 
 ```bash
-M$ git clone https://github.com/DataSentics/bricksflow.git
+$ git clone https://github.com/DataSentics/bricksflow.git
 $ cd bricksflow
 $ ./env-init.sh
 ```
