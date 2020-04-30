@@ -33,7 +33,7 @@ Clone the repo now and prepare the package environment:
 * On **Linux/Mac**, the use standard console 
 
 ```bash
-$ git clone https://github.com/DataSentics/bricksflow.git
+$ git clone https://github.com/bricksflow/bricksflow.git
 $ cd bricksflow
 $ ./env-init.sh
 ```
