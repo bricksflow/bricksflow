@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "myproject"
+name = "__myproject__"
 version = "0.1"
 description = "Bricksflow project skelefon"
 readme = "README.md"
@@ -17,7 +17,7 @@ classifiers = [
 include = ["*.yaml", "*.json"]
 
 packages = [
-    { include = "myproject", from = "src" },
+    { include = "__myproject__", from = "src" },
 ]
 
 [tool.poetry.dependencies]
@@ -33,4 +33,4 @@ py4j = "^0.10.9"
 deepdiff = "^4.3.2"
 
 [app]
-container-init = ["myproject.ContainerInit", "initContainer"]
+container-init = ["__myproject__.ContainerInit", "initContainer"]

@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="ContainerInitTest" type="tests" factoryName="Unittests">
-    <module name="bricksflow" />
+    <module name="__bricksflow__" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
@@ -26,7 +26,7 @@
     </EXTENSION>
     <option name="_new_pattern" value="&quot;&quot;" />
     <option name="_new_additionalArguments" value="&quot;&quot;" />
-    <option name="_new_target" value="&quot;$PROJECT_DIR$/src/myproject/ContainerInitTest.py&quot;" />
+    <option name="_new_target" value="&quot;$PROJECT_DIR$/src/__myproject__/ContainerInitTest.py&quot;" />
     <option name="_new_targetType" value="&quot;PATH&quot;" />
     <method v="2" />
   </configuration>

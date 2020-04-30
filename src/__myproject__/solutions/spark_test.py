@@ -3,7 +3,7 @@
 
 # COMMAND ----------
 
-from myproject.app.init import spark, loggerFactory, parameters
+from __myproject__.app.init import spark, loggerFactory, parameters
 from time import time, sleep
 
 logger = loggerFactory.create('my_test_logger')

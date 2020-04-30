@@ -1,7 +1,7 @@
 import os
 import unittest
 from injecta.testing.servicesTester import testServices
-from myproject.ContainerInit import initContainer
+from __myproject__.ContainerInit import initContainer
 
 class ContainerInitTest(unittest.TestCase):
 

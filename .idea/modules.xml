@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/bricksflow.iml" filepath="$PROJECT_DIR$/.idea/bricksflow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/__bricksflow__.iml" filepath="$PROJECT_DIR$/.idea/__bricksflow__.iml" />
     </modules>
   </component>
 </project>

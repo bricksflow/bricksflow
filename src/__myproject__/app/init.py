@@ -1,6 +1,6 @@
 # pylint: disable = wrong-import-position
 import os
-from myproject.ContainerInit import initContainer
+from __myproject__.ContainerInit import initContainer
 
 container = initContainer(os.environ['APP_ENV'])
 

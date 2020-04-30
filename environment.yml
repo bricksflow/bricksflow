@@ -1,4 +1,4 @@
-name: myproject
+name: __myproject__
 channels:
   - defaults
 dependencies:

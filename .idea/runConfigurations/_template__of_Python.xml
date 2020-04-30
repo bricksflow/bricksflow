@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-    <module name="bricksflow" />
+    <module name="__bricksflow__" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
