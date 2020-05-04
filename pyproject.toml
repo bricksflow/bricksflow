@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "__myproject__"
+name = "t__myproject__t"
 version = "0.1"
 description = "Bricksflow project skelefon"
 readme = "README.md"
