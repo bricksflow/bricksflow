@@ -131,7 +131,7 @@ description = "Console Bundle for the Pyfony Framework"
 name = "console-bundle"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.2.2"
+version = "0.2.3"
 
 [package.dependencies]
 colorlog = ">=4.0.0,<4.1.0"
@@ -942,8 +942,8 @@ configparser = [
     {file = "configparser-5.0.0.tar.gz", hash = "sha256:2ca44140ee259b5e3d8aaf47c79c36a7ab0d5e94d70bd4105c03ede7a20ea5a1"},
 ]
 console-bundle = [
-    {file = "console-bundle-0.2.2.tar.gz", hash = "sha256:b4ef3ce50f1f8d9137b4d2c9d7dc78a6e8716c917e5f9d051d6412710576a9a9"},
-    {file = "console_bundle-0.2.2-py3-none-any.whl", hash = "sha256:2fc0bcf95165afa5f06f3e2c99e29af51ff307556f093e2a45705e68e5514572"},
+    {file = "console-bundle-0.2.3.tar.gz", hash = "sha256:649bf0ad36e389f3acec5d4b21f6bd78fd395d32185359e0a5b2bee349c26973"},
+    {file = "console_bundle-0.2.3-py3-none-any.whl", hash = "sha256:1253a9b501661dfa662c2c1883dfb0a3c2c019eb6582df323a14de6e986a2bd3"},
 ]
 databricks-api = [
     {file = "databricks_api-0.3.0-py2.py3-none-any.whl", hash = "sha256:8f637288d05b3d214ea1636bb31d6423c751d85fdccd25fd0d0c86657e7c0abc"},

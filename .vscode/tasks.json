@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dbx:deploy",
+      "type": "shell",
+      "windows": {
+        "command": ".venv/python",
+        "options": {
+          "env": {
+              "PYTHONPATH": "src;${env:PYTHONPATH}",
+          }
+        },
+      },
+      "linux": {
+        "command": ".venv/bin/python",
+        "options": {
+          "env": {
+              "PYTHONPATH": "src:${env:PYTHONPATH}",
+          }
+        },
+      },
+      "osx": {
+        "command": ".venv/bin/python",
+        "options": {
+          "env": {
+              "PYTHONPATH": "src:${env:PYTHONPATH}",
+          }
+        },
+      },
+      "args": [".venv/Lib/site-packages/consolebundle/CommandRunner.py", "dbx:deploy"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+            "COMMAND_DOTENV_DIR": "."
+        }
+      },
+      "problemMatcher": []
+    }
+  ]
+}

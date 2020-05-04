@@ -1,0 +1,26 @@
+{
+  "platformSettings.autoLoad": true,
+  "platformSettings.platforms": {
+    "win32": {
+      "nodes": {
+        "python.pythonPath": ".venv\\python.exe",
+      }
+    },
+    "linux": {
+      "nodes": {
+        "python.pythonPath": ".venv/bin/python",
+      }
+    },
+    "darwin": {
+      "nodes": {
+        "python.pythonPath": ".venv/bin/python",
+      }
+    },
+  },
+  "workbench.tree.indent": 20,
+  "files.exclude": {
+    "dist": true,
+  },
+  "pythonPathSetter.sourceDirs": ["src"],
+  "debug.internalConsoleOptions": "neverOpen",
+}
