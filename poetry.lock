@@ -155,7 +155,7 @@ description = "Databricks bundle for the Pyfony framework"
 name = "databricks-bundle"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.3.3"
+version = "0.3.4"
 
 [package.dependencies]
 injecta = ">=0.7.0,<0.8.0"
@@ -962,8 +962,8 @@ databricks-api = [
     {file = "databricks_api-0.3.0.tar.gz", hash = "sha256:3e37422b2e52b1d8aa68e3ce36034d86313170f56fac11f88295713d450dbd99"},
 ]
 databricks-bundle = [
-    {file = "databricks-bundle-0.3.3.tar.gz", hash = "sha256:525870f26ec90c8c9674de3badf3e09e39b3f98dca40b1d98febb60352c51d2e"},
-    {file = "databricks_bundle-0.3.3-py3-none-any.whl", hash = "sha256:610acabd82b6dfcf63d8aa341af755b8e8c9be590d8e770614ca067aa95cc600"},
+    {file = "databricks-bundle-0.3.4.tar.gz", hash = "sha256:9c459b15a5f5b98f53c63a32f6a869e3a4c3e2e5d58ae8f6e8bf0860800c3593"},
+    {file = "databricks_bundle-0.3.4-py3-none-any.whl", hash = "sha256:63c0304bde9301e17ad5e37e9e692b09d5292c404d962fdb03cde0acaba4c425"},
 ]
 databricks-cli = [
     {file = "databricks-cli-0.9.1.tar.gz", hash = "sha256:1ebf123b5567c06b7583688077120ead075ca06938b9995d4acafa97863ed8ff"},
