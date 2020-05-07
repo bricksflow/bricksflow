@@ -131,11 +131,12 @@ description = "Console Bundle for the Pyfony Framework"
 name = "console-bundle"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.2.3"
+version = "0.2.4"
 
 [package.dependencies]
 colorlog = ">=4.0.0,<4.1.0"
 pyfony-bundles = ">=0.2.0,<0.3.0"
+python-dotenv = ">=0.13.0,<0.14.0"
 
 [[package]]
 category = "dev"
@@ -708,6 +709,17 @@ six = ">=1.5"
 
 [[package]]
 category = "main"
+description = "Add .env support to your django/flask apps in development and deployments"
+name = "python-dotenv"
+optional = false
+python-versions = "*"
+version = "0.13.0"
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
+category = "main"
 description = "World timezone definitions, modern and historical"
 name = "pytz"
 optional = false
@@ -942,8 +954,8 @@ configparser = [
     {file = "configparser-5.0.0.tar.gz", hash = "sha256:2ca44140ee259b5e3d8aaf47c79c36a7ab0d5e94d70bd4105c03ede7a20ea5a1"},
 ]
 console-bundle = [
-    {file = "console-bundle-0.2.3.tar.gz", hash = "sha256:649bf0ad36e389f3acec5d4b21f6bd78fd395d32185359e0a5b2bee349c26973"},
-    {file = "console_bundle-0.2.3-py3-none-any.whl", hash = "sha256:1253a9b501661dfa662c2c1883dfb0a3c2c019eb6582df323a14de6e986a2bd3"},
+    {file = "console-bundle-0.2.4.tar.gz", hash = "sha256:4455c6e2304329a0d6fa19580c0eb6251cf2999dda22835f8288f2ddeb9e501b"},
+    {file = "console_bundle-0.2.4-py3-none-any.whl", hash = "sha256:1ee7c8f5412e26a36426d94fd9f6a58d06dc049003a40059d68e64d410b066cf"},
 ]
 databricks-api = [
     {file = "databricks_api-0.3.0-py2.py3-none-any.whl", hash = "sha256:8f637288d05b3d214ea1636bb31d6423c751d85fdccd25fd0d0c86657e7c0abc"},
@@ -1255,6 +1267,10 @@ python-box = [
 python-dateutil = [
     {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
     {file = "python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"},
+]
+python-dotenv = [
+    {file = "python-dotenv-0.13.0.tar.gz", hash = "sha256:3b9909bc96b0edc6b01586e1eed05e71174ef4e04c71da5786370cebea53ad74"},
+    {file = "python_dotenv-0.13.0-py2.py3-none-any.whl", hash = "sha256:25c0ff1a3e12f4bde8d592cc254ab075cfe734fc5dd989036716fd17ee7e5ec7"},
 ]
 pytz = [
     {file = "pytz-2019.3-py2.py3-none-any.whl", hash = "sha256:1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d"},
