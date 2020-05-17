@@ -1,6 +1,5 @@
 from typing import List
 from databricksbundle.DatabricksBundle import DatabricksBundle
-from pyfony.PyfonyBundle import PyfonyBundle
 from pyfonybundles.Bundle import Bundle
 from pyfony.kernel.BaseKernel import BaseKernel
 from loggerbundle.LoggerBundle import LoggerBundle
@@ -20,7 +19,6 @@ class Kernel(BaseKernel):
             ]
 
         bundles += [
-            PyfonyBundle(),
             ConsoleBundle(),
             LoggerBundle(),
             DatabricksBundle(),
