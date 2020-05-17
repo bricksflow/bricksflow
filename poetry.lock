@@ -131,7 +131,7 @@ description = "Console Bundle for the Pyfony Framework"
 name = "console-bundle"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.2.4"
+version = "0.2.5"
 
 [package.dependencies]
 colorlog = ">=4.0.0,<4.1.0"
@@ -155,10 +155,10 @@ description = "Databricks bundle for the Pyfony framework"
 name = "databricks-bundle"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.3.4"
+version = "0.3.6"
 
 [package.dependencies]
-injecta = ">=0.7.0,<0.8.0"
+injecta = ">=0.7.0,<0.9.0"
 ipython = ">=7.0.0,<8.0.0"
 pandas = ">=0.24.2,<0.25.0"
 pyarrow = ">=0.16.0,<0.17.0"
@@ -193,7 +193,7 @@ description = "Databrics Deployment Tool"
 name = "dbx-deploy"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.9.11"
+version = "0.10.0"
 
 [package.dependencies]
 console-bundle = ">=0.2.0,<0.3.0"
@@ -285,7 +285,7 @@ description = "Dependency Injection Container Library"
 name = "injecta"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.7.0"
+version = "0.8.1"
 
 [package.dependencies]
 PyYAML = ">=5.1.0,<5.2.0"
@@ -423,7 +423,7 @@ description = "Logger bundle for the Pyfony framework"
 name = "logger-bundle"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.5.2"
+version = "0.5.3"
 
 [package.dependencies]
 colorlog = ">=4.0.0,<4.1.0"
@@ -620,23 +620,23 @@ description = "Dependency Injection powered framework"
 name = "pyfony"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.4.3"
+version = "0.5.0"
 
 [package.dependencies]
-console-bundle = ">=0.2.0,<0.3.0"
-injecta = ">=0.6.0,<0.8.0"
-logger-bundle = ">=0.5.0,<0.6.0"
+console-bundle = ">=0.2.5,<0.3.0"
+injecta = ">=0.8.1,<0.9.0"
+logger-bundle = ">=0.5.3,<0.6.0"
 
 [[package]]
 category = "main"
-description = "Pyfony Framwork bundles base package"
+description = "Pyfony Framework bundles base package"
 name = "pyfony-bundles"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.2.1"
+version = "0.2.2"
 
 [package.dependencies]
-injecta = ">=0.6.0,<0.8.0"
+injecta = ">=0.6.0,<0.9.0"
 python-box = ">=3.4.0,<3.5.0"
 tomlkit = ">=0.5.0,<0.6.0"
 
@@ -875,7 +875,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "685befdd315c05dfdb139b2376e87ee9adacd3104d5031fa25ba95b1cf217eb2"
+content-hash = "0d9e0da379e3d5614b07f146924dcca662fcb4a9e6ab04a70da6731862f50a04"
 python-versions = "~3.7.3"
 
 [metadata.files]
@@ -954,16 +954,16 @@ configparser = [
     {file = "configparser-5.0.0.tar.gz", hash = "sha256:2ca44140ee259b5e3d8aaf47c79c36a7ab0d5e94d70bd4105c03ede7a20ea5a1"},
 ]
 console-bundle = [
-    {file = "console-bundle-0.2.4.tar.gz", hash = "sha256:4455c6e2304329a0d6fa19580c0eb6251cf2999dda22835f8288f2ddeb9e501b"},
-    {file = "console_bundle-0.2.4-py3-none-any.whl", hash = "sha256:1ee7c8f5412e26a36426d94fd9f6a58d06dc049003a40059d68e64d410b066cf"},
+    {file = "console-bundle-0.2.5.tar.gz", hash = "sha256:0280bc61cbcc4338e29a65b22dee9b37546627839745cd51c062c31d99f46944"},
+    {file = "console_bundle-0.2.5-py3-none-any.whl", hash = "sha256:f2029bbe346001a759b9774ce30455f6d3a80c36c500c8392400194fe12858f7"},
 ]
 databricks-api = [
     {file = "databricks_api-0.3.0-py2.py3-none-any.whl", hash = "sha256:8f637288d05b3d214ea1636bb31d6423c751d85fdccd25fd0d0c86657e7c0abc"},
     {file = "databricks_api-0.3.0.tar.gz", hash = "sha256:3e37422b2e52b1d8aa68e3ce36034d86313170f56fac11f88295713d450dbd99"},
 ]
 databricks-bundle = [
-    {file = "databricks-bundle-0.3.4.tar.gz", hash = "sha256:9c459b15a5f5b98f53c63a32f6a869e3a4c3e2e5d58ae8f6e8bf0860800c3593"},
-    {file = "databricks_bundle-0.3.4-py3-none-any.whl", hash = "sha256:63c0304bde9301e17ad5e37e9e692b09d5292c404d962fdb03cde0acaba4c425"},
+    {file = "databricks-bundle-0.3.6.tar.gz", hash = "sha256:8ae6320715ebf6c3dd5f0ba504c8275bd08742edbae5ea94b344637de7c47b7a"},
+    {file = "databricks_bundle-0.3.6-py3-none-any.whl", hash = "sha256:c5f3c361d36ace9f2f9a6fb21c13a96ce892f0990bf218b34d655c60c8956ea3"},
 ]
 databricks-cli = [
     {file = "databricks-cli-0.9.1.tar.gz", hash = "sha256:1ebf123b5567c06b7583688077120ead075ca06938b9995d4acafa97863ed8ff"},
@@ -973,8 +973,8 @@ databricks-connect = [
     {file = "databricks-connect-6.4.1.tar.gz", hash = "sha256:4f5014042da74e0b3ad12bef01d9f4e4de3a198b8da1f1c64d3b717254326530"},
 ]
 dbx-deploy = [
-    {file = "dbx-deploy-0.9.11.tar.gz", hash = "sha256:d9a77f81f25dbfcef9ada6394341d5ccb04f442c93bb947f325f2bdcb190f6f5"},
-    {file = "dbx_deploy-0.9.11-py3-none-any.whl", hash = "sha256:d02a4f9afc4f494772dda6b4e2074daf575a30edfbcdc04c142214b8ed104d15"},
+    {file = "dbx-deploy-0.10.0.tar.gz", hash = "sha256:d30e41eca2c5049304344b2d0a65abf6869019f1525b725b980d1abef714542f"},
+    {file = "dbx_deploy-0.10.0-py3-none-any.whl", hash = "sha256:231189148d5ccf7343a7d21a5e786d33eb0d1dfb6f75a0c6781a560de972f9c6"},
 ]
 dbx-notebook-exporter = [
     {file = "dbx-notebook-exporter-0.4.0.tar.gz", hash = "sha256:e3fd919ef3acabbd82ef1188633f1f9f8cfa6f7a08676f1a6833f912a91fab7b"},
@@ -1005,8 +1005,8 @@ importlib-metadata = [
     {file = "importlib_metadata-1.6.0.tar.gz", hash = "sha256:34513a8a0c4962bc66d35b359558fd8a5e10cd472d37aec5f66858addef32c1e"},
 ]
 injecta = [
-    {file = "injecta-0.7.0-py3-none-any.whl", hash = "sha256:a2aca68ee35612f4279a2adb31dd8ea125e5e62623cfcfd51e1ba4d6cbff554a"},
-    {file = "injecta-0.7.0.tar.gz", hash = "sha256:a84be02b2f0bc01b9b47481c132179dabd67356bdc54447faac6059133927210"},
+    {file = "injecta-0.8.1-py3-none-any.whl", hash = "sha256:3f96c0b10f91107cd18846089f8e936ce0c02fc944fc577ec1433d8310001516"},
+    {file = "injecta-0.8.1.tar.gz", hash = "sha256:ef7981b71a6cfc85acd1bb69eb5ff4505b7f52140243aa1c6faa2694d1c74b85"},
 ]
 ipython = [
     {file = "ipython-7.13.0-py3-none-any.whl", hash = "sha256:eb8d075de37f678424527b5ef6ea23f7b80240ca031c2dd6de5879d687a65333"},
@@ -1060,8 +1060,8 @@ lazy-object-proxy = [
     {file = "lazy_object_proxy-1.4.3-cp38-cp38-win_amd64.whl", hash = "sha256:59f79fef100b09564bc2df42ea2d8d21a64fdcda64979c0fa3db7bdaabaf6239"},
 ]
 logger-bundle = [
-    {file = "logger-bundle-0.5.2.tar.gz", hash = "sha256:c94cf42e314c32e3d6e147c46f09fccc180dacd16a02593811c17d12d88d4494"},
-    {file = "logger_bundle-0.5.2-py3-none-any.whl", hash = "sha256:6b74256412ee5caa87337b57aa0c763bb238cd164c0d250ffd43e9df19128c9a"},
+    {file = "logger-bundle-0.5.3.tar.gz", hash = "sha256:7f68aaf7eeec7ea7c4c2ae61d89990b4e218a533364b3132cc44012ede145f1c"},
+    {file = "logger_bundle-0.5.3-py3-none-any.whl", hash = "sha256:1021f1d6bd2afd2775782ba807e4f443054f2433afa9ccb648cd6e7d0a37b244"},
 ]
 markupsafe = [
     {file = "MarkupSafe-1.1.1-cp27-cp27m-macosx_10_6_intel.whl", hash = "sha256:09027a7803a62ca78792ad89403b1b7a73a01c8cb65909cd876f7fcebd79b161"},
@@ -1217,12 +1217,12 @@ pycparser = [
     {file = "pycparser-2.20.tar.gz", hash = "sha256:2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"},
 ]
 pyfony = [
-    {file = "pyfony-0.4.3-py3-none-any.whl", hash = "sha256:ca330c27c7ab9d3545a56b025674078b483a16c09e542aa55690ad032393a958"},
-    {file = "pyfony-0.4.3.tar.gz", hash = "sha256:1e47c3903b1d3db94e8ed3f22f93856474e70142e72d7e9818164d948cc6518b"},
+    {file = "pyfony-0.5.0-py3-none-any.whl", hash = "sha256:900fe83db4db554900fdfacf79532cdee1e75d2898814d84b4ad534ac2331734"},
+    {file = "pyfony-0.5.0.tar.gz", hash = "sha256:53e6d4f5e03d9815a9c89acf77abb16e356181d03be5b8352710847165260f57"},
 ]
 pyfony-bundles = [
-    {file = "pyfony-bundles-0.2.1.tar.gz", hash = "sha256:0599797009dd302b626ec3cf9bd0d4daca9b8114b99e0236659d0ac84c302416"},
-    {file = "pyfony_bundles-0.2.1-py3-none-any.whl", hash = "sha256:f429950eaaf0873e751779b3fddb4fee9700ebf445b45ab135ced9bd83bc3369"},
+    {file = "pyfony-bundles-0.2.2.tar.gz", hash = "sha256:3d0c6be33002df1fad7015319ead1e718a41d8bfe8d2387167daf284f7fe40bf"},
+    {file = "pyfony_bundles-0.2.2-py3-none-any.whl", hash = "sha256:d5c88bddd14a2773c767ea681e27f661a0712d70555c54731cb16eff64cfdde9"},
 ]
 pygit2 = [
     {file = "pygit2-0.28.2-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:f1d99e6f67438950d44f70e12469088239288f458fa8b660da6f9f1c7138ef22"},
