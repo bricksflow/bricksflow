@@ -2,23 +2,28 @@
 
 ## 1. What's inside
 
-This is a Bricksflow project skeleton covering our **best practices for Databricks projects**:
+This is a Bricksflow project skeleton covering our **best practices for Databricks projects**. Bricksflow is focused on the following paradigms:
 
-1. „One code for all environments“ (local IDE + Databricks UI)
+* anyone with basic python skills can create pipelines and improve the business logic,
+* developing a standard DataLake project requires almost no engineers,
+* one code for all environments (your favorite IDE + Databricks UI),
+* pursue consistency as the project grows.
 
-1. Configuration management
+**Base components** to be used by everyone:
 
-1. Dependency management (packages)
-
+1. Configuration in YAML
 1. Tables & schema management
+1. Automated deployment to Databricks
+1. Documentation automation
 
-1. Testing
+**Advanced components** to be used mostly by engineers:
 
-1. Deployment
+1. Production releases workflow
+1. Unit & pipeline testing
+1. Extensions API
 
-1. Productionalization
-
-Let's **manage complex DataLakes together**!
+Read more at [Bricksflow: Databricks development made convenient
+](https://medium.com/datasentics/bricksflow-databricks-development-made-convenient-3b0cc486c856)  
 
 ## 2. Local environment setup
 
