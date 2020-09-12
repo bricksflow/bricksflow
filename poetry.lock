@@ -155,12 +155,12 @@ description = "Databricks bundle for the Pyfony framework"
 name = "databricks-bundle"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.3.6"
+version = "0.5.4"
 
 [package.dependencies]
-injecta = ">=0.7.0,<0.9.0"
+injecta = ">=0.8.4,<0.9.0"
 ipython = ">=7.0.0,<8.0.0"
-pandas = ">=0.24.2,<0.25.0"
+pandas = ">=0.24.2"
 pyarrow = ">=0.16.0,<0.17.0"
 pyfony-bundles = ">=0.2.0,<0.3.0"
 
@@ -285,7 +285,7 @@ description = "Dependency Injection Container Library"
 name = "injecta"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.8.1"
+version = "0.8.8"
 
 [package.dependencies]
 PyYAML = ">=5.1.0,<5.2.0"
@@ -620,12 +620,13 @@ description = "Dependency Injection powered framework"
 name = "pyfony"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.5.0"
+version = "0.6.0"
 
 [package.dependencies]
 console-bundle = ">=0.2.5,<0.3.0"
 injecta = ">=0.8.1,<0.9.0"
 logger-bundle = ">=0.5.3,<0.6.0"
+pyfony-bundles = ">=0.2.4,<0.3.0"
 
 [[package]]
 category = "main"
@@ -633,7 +634,7 @@ description = "Pyfony Framework bundles base package"
 name = "pyfony-bundles"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.2.2"
+version = "0.2.4"
 
 [package.dependencies]
 injecta = ">=0.6.0,<0.9.0"
@@ -875,7 +876,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "0d9e0da379e3d5614b07f146924dcca662fcb4a9e6ab04a70da6731862f50a04"
+content-hash = "625c745dead5fa9ccd2f8e7799dadd720640bf3ee8ed36c3684fc86a8526ca83"
 python-versions = "~3.7.3"
 
 [metadata.files]
@@ -962,8 +963,7 @@ databricks-api = [
     {file = "databricks_api-0.3.0.tar.gz", hash = "sha256:3e37422b2e52b1d8aa68e3ce36034d86313170f56fac11f88295713d450dbd99"},
 ]
 databricks-bundle = [
-    {file = "databricks-bundle-0.3.6.tar.gz", hash = "sha256:8ae6320715ebf6c3dd5f0ba504c8275bd08742edbae5ea94b344637de7c47b7a"},
-    {file = "databricks_bundle-0.3.6-py3-none-any.whl", hash = "sha256:c5f3c361d36ace9f2f9a6fb21c13a96ce892f0990bf218b34d655c60c8956ea3"},
+    {file = "databricks_bundle-0.5.4-py3-none-any.whl", hash = "sha256:6528561308351c93fe3b0a1d868995f92121a1bd188e4801df9ef9578e76d7e1"},
 ]
 databricks-cli = [
     {file = "databricks-cli-0.9.1.tar.gz", hash = "sha256:1ebf123b5567c06b7583688077120ead075ca06938b9995d4acafa97863ed8ff"},
@@ -1005,8 +1005,7 @@ importlib-metadata = [
     {file = "importlib_metadata-1.6.0.tar.gz", hash = "sha256:34513a8a0c4962bc66d35b359558fd8a5e10cd472d37aec5f66858addef32c1e"},
 ]
 injecta = [
-    {file = "injecta-0.8.1-py3-none-any.whl", hash = "sha256:3f96c0b10f91107cd18846089f8e936ce0c02fc944fc577ec1433d8310001516"},
-    {file = "injecta-0.8.1.tar.gz", hash = "sha256:ef7981b71a6cfc85acd1bb69eb5ff4505b7f52140243aa1c6faa2694d1c74b85"},
+    {file = "injecta-0.8.8-py3-none-any.whl", hash = "sha256:d63178a8157ea76977aa94baa689a3caa6d0533d92b300634cba36d75cef2132"},
 ]
 ipython = [
     {file = "ipython-7.13.0-py3-none-any.whl", hash = "sha256:eb8d075de37f678424527b5ef6ea23f7b80240ca031c2dd6de5879d687a65333"},
@@ -1091,6 +1090,11 @@ markupsafe = [
     {file = "MarkupSafe-1.1.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:ba59edeaa2fc6114428f1637ffff42da1e311e29382d81b339c1817d37ec93c6"},
     {file = "MarkupSafe-1.1.1-cp37-cp37m-win32.whl", hash = "sha256:b00c1de48212e4cc9603895652c5c410df699856a2853135b3967591e4beebc2"},
     {file = "MarkupSafe-1.1.1-cp37-cp37m-win_amd64.whl", hash = "sha256:9bf40443012702a1d2070043cb6291650a0841ece432556f784f004937f0f32c"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:6788b695d50a51edb699cb55e35487e430fa21f1ed838122d722e0ff0ac5ba15"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-manylinux1_i686.whl", hash = "sha256:cdb132fc825c38e1aeec2c8aa9338310d29d337bebbd7baa06889d09a60a1fa2"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:13d3144e1e340870b25e7b10b98d779608c02016d5184cfb9927a9f10c689f42"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-win32.whl", hash = "sha256:596510de112c685489095da617b5bcbbac7dd6384aeebeda4df6025d0256a81b"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-win_amd64.whl", hash = "sha256:e8313f01ba26fbbe36c7be1966a7b7424942f670f38e666995b88d012765b9be"},
     {file = "MarkupSafe-1.1.1.tar.gz", hash = "sha256:29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"},
 ]
 mccabe = [
@@ -1217,12 +1221,10 @@ pycparser = [
     {file = "pycparser-2.20.tar.gz", hash = "sha256:2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"},
 ]
 pyfony = [
-    {file = "pyfony-0.5.0-py3-none-any.whl", hash = "sha256:900fe83db4db554900fdfacf79532cdee1e75d2898814d84b4ad534ac2331734"},
-    {file = "pyfony-0.5.0.tar.gz", hash = "sha256:53e6d4f5e03d9815a9c89acf77abb16e356181d03be5b8352710847165260f57"},
+    {file = "pyfony-0.6.0-py3-none-any.whl", hash = "sha256:a337bd948c49d534f99a424fee87df268fa59c5f42ee88dbe866b3d421b02af9"},
 ]
 pyfony-bundles = [
-    {file = "pyfony-bundles-0.2.2.tar.gz", hash = "sha256:3d0c6be33002df1fad7015319ead1e718a41d8bfe8d2387167daf284f7fe40bf"},
-    {file = "pyfony_bundles-0.2.2-py3-none-any.whl", hash = "sha256:d5c88bddd14a2773c767ea681e27f661a0712d70555c54731cb16eff64cfdde9"},
+    {file = "pyfony_bundles-0.2.4-py3-none-any.whl", hash = "sha256:615725b697fd66e4b10a2ec0cb6414a3bae20a3a437a20b686c4e2a92e882f68"},
 ]
 pygit2 = [
     {file = "pygit2-0.28.2-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:f1d99e6f67438950d44f70e12469088239288f458fa8b660da6f9f1c7138ef22"},

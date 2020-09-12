@@ -6,11 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: goanpeca/setup-miniconda@v1.1.2
+      - uses: goanpeca/setup-miniconda@v1.7.0
         with:
           miniconda-version: '4.7.12'
       - name: setup
         run: |
+          cp .env.dist .env
+          sed -i 's/DBX_TOKEN=/DBX_TOKEN=abcdefgh123456789/g' .env # remove DBX_TOKEN env var from .env
           ./env-init.sh
           eval "$(conda shell.bash hook)"
           source $HOME/.poetry/env
@@ -29,12 +31,18 @@ jobs:
         run: |
           eval "$(conda shell.bash hook)"
           conda activate $PWD/.venv
-          ./compare_configs.py src/__myproject__/_config/config_dev.yaml src/__myproject__/_config/config_test.yaml
+          ./compare_configs.py src/__myproject__/_config/config_dev.yaml src/__myproject__/_config/config_prod.yaml
       - name: tests
         run: |
           eval "$(conda shell.bash hook)"
           conda activate $PWD/.venv
-          export DBX_TOKEN=x
-          export DBX_CLUSTER=x
-          export DBX_ORG_ID=x
           ./run_tests.sh
+      - name: containerChecks
+        run: |
+          eval "$(conda shell.bash hook)"
+          conda activate $PWD/.venv
+          ~/.poetry/bin/poetry install --no-root --no-dev # remove all dev dependencies
+          pip install databricks-connect==6.4.0 # pyspark is still needed
+          unset DBX_DEPLOY_ENABLED
+          python container_init_dev.py
+          python container_init_prod.py

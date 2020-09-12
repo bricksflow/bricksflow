@@ -1,26 +1,3 @@
 parameters:
   myparameter:
     myvalue: 'This is a sample string config value'
-
-  dbxdeploy:
-    source:
-      notebooks:
-        baseDir: 'src/__myproject__'
-        patterns:
-          - 'app/install_master_package.py'
-          - 'solutions/**/*.py'
-    target:
-      workspaceBaseDir: '%databricks.workspaceBaseDir%'
-    databricks:
-      host: '%databricks.address%'
-      token: '%databricks.token%'
-      clusterId: '%databricks.clusterId%'
-
-  databricksbundle:
-    databricksConnect:
-      connection:
-        address: '%databricks.address%'
-        token: '%databricks.token%'
-        clusterId: '%databricks.clusterId%'
-        orgId: '%databricks.orgId%'
-        port: 15001

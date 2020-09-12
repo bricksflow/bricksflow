@@ -1,0 +1,14 @@
+parameters:
+  dbxdeploy:
+    source:
+      notebooks:
+        baseDir: 'src/__myproject__'
+        patterns:
+          - 'app/install_master_package.py'
+          - 'solutions/**/*.py'
+    target:
+      workspaceBaseDir: '%databricks.workspaceBaseDir%'
+    databricks:
+      host: '%databricks.address%'
+      token: '%env(DBX_TOKEN)%'
+      clusterId: '%databricks.clusterId%'

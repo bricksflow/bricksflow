@@ -1,0 +1,7 @@
+parameters:
+  databricksbundle:
+    databricksConnect:
+      connection:
+        address: '%databricks.address%'
+        clusterId: '%databricks.clusterId%'
+        orgId: '%databricks.orgId%'

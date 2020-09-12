@@ -1,11 +1,9 @@
 imports:
-  - '@databricksbundle/spark/spark_test.yaml'
   - config.yaml
 
 parameters:
   databricks:
     address: https://westeurope.azuredatabricks.net
-    token: ''
-    clusterId: ''
-    orgId: ''
+    clusterId: '[Your PROD cluster ID]'
+    orgId: '[Your PROD orgId]' # Azure Databricks only
     workspaceBaseDir: '/{currentBranch}'
