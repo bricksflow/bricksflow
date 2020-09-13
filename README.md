@@ -1,4 +1,4 @@
-# Bricksflow Example Project
+# Bricksflow Framework project template
 
 ## 1. What's inside
 
@@ -46,11 +46,19 @@ We recommend using the following IDEs:
 source <(curl -s https://raw.githubusercontent.com/bricksflow/project-creator/master/create_project.sh)
 ```
 
-When the environment setup is completed, update the `[PROJECT_ROOT]/.env` file with the appropriate values.
+When the environment setup is completed, [configure your Databricks cluster connection details](https://docs.databricks.com/dev-tools/databricks-connect.html#step-2-configure-connection-properties):
 
-![alt text](docs/dotenv.png)
+Update *src/[ROOT_MODULE]/_config/config_dev.yaml* with your Databricks `address`, `clusterId` and `orgId` (Azure only).
 
-Now activate the Conda environment:
+![](docs/config_dev.png)
+
+Add your Databricks token to the `[PROJECT_ROOT]/.env` file
+
+![](docs/dotenv.png)
+
+## 4. Activate your project environment
+
+Now activate the Conda environment for your new project:
 
 ```bash
 $ conda activate $PWD/.venv
@@ -62,7 +70,7 @@ or use a shortcut
 $ ca
 ```
 
-## 4. Important scripts
+## 5. Important scripts
 
 1. ```./pylint.sh``` - checks coding standards
 1. ```./run_tests.sh``` - runs tests
