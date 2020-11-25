@@ -13,7 +13,7 @@ jobs:
         run: |
           cp .env.dist .env
           sed -i 's/DBX_TOKEN=/DBX_TOKEN=abcdefgh123456789/g' .env # remove DBX_TOKEN env var from .env
-          ./env-init.sh
+          ./env-init.sh -y --verbose
           eval "$(conda shell.bash hook)"
           source $HOME/.poetry/env
           conda activate $PWD/.venv
