@@ -8,5 +8,6 @@ else
 CONDA_BIN_DIR="$CONDA_BASE_DIR/bin" # Linux/Mac
 fi
 
+$CONDA_BIN_DIR/pip install "penvy>=1.0.1"
 $CONDA_BIN_DIR/pip install "benvy>=1.0.0"
 $CONDA_BIN_DIR/benvy-init "$@"
