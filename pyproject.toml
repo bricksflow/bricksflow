@@ -23,7 +23,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "~3.7.3"
 pyfony = "0.6.*"
-databricks-bundle = "0.5.10"
+databricks-bundle = "^0.5.10"
 
 [tool.poetry.dev-dependencies]
 databricks-connect = "7.1.*"
