@@ -208,11 +208,20 @@ tabulate = ">=0.7.7"
 
 [[package]]
 name = "databricks-connect"
-version = "7.1.10"
+version = "7.3.5"
 description = "Databricks Connect Client"
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.dependencies]
+py4j = "0.10.9"
+six = "*"
+
+[package.extras]
+ml = ["numpy (>=1.7)"]
+mllib = ["numpy (>=1.7)"]
+sql = ["pandas (>=0.23.2)", "pyarrow (>=0.15.1)"]
 
 [[package]]
 name = "dbx-deploy"
@@ -874,7 +883,7 @@ testing = ["jaraco.itertools", "func-timeout"]
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.7.3"
-content-hash = "b731306c6bf6d0313c49ca70f3a0f5c66ad572dfa695eddee26f22e0d5090b67"
+content-hash = "ae205384901261795efdebaecd7296c30b5bb8a01a74889999b9af68e6203566"
 
 [metadata.files]
 appnope = [
@@ -979,7 +988,7 @@ databricks-cli = [
     {file = "databricks_cli-0.9.1-py2-none-any.whl", hash = "sha256:baeb52ddebe55305797e30641ebbc3c3f520535cd4df67afb05d06a90cc1b837"},
 ]
 databricks-connect = [
-    {file = "databricks-connect-7.1.10.tar.gz", hash = "sha256:bae28fab1e08b709553c8efbeefc5b0ee4f5540a13a04e61fb3d348814823e16"},
+    {file = "databricks-connect-7.3.5.tar.gz", hash = "sha256:c720298b05648f5de8f17de03f93d60ffb30c2d55ce2750e63c17c341a8de5e4"},
 ]
 dbx-deploy = [
     {file = "dbx_deploy-0.12.2-py3-none-any.whl", hash = "sha256:dc7fe030d5b32e72e1e6a9240266fdab3b4d7c2261f5512f4d787eddf3b16fda"},
