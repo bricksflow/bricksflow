@@ -883,7 +883,7 @@ testing = ["jaraco.itertools", "func-timeout"]
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.7.3"
-content-hash = "ae205384901261795efdebaecd7296c30b5bb8a01a74889999b9af68e6203566"
+content-hash = "a891a2d4e3dfb9aed5afa6131ebc2ba6bbb60b7083df83bcd006f0a2c7e22e25"
 
 [metadata.files]
 appnope = [

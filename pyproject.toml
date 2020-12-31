@@ -29,7 +29,6 @@ databricks-bundle = "^0.5.10"
 databricks-connect = "7.3.*"
 dbx-deploy = "^0.12.2"
 pylint = "2.4.*"
-py4j = "^0.10.9"
 deepdiff = "^4.3.2"
 
 [app]
