@@ -1,0 +1,12 @@
+# overrides default bundle settings defined in site-packages/datalakebundle/_config/config.yaml
+parameters:
+  datalakebundle:
+    notebook:
+      scriptPathTemplate: '{rootModulePath}/{layer}/{domain}/{tableIdentifier}/{tableIdentifier}.py'
+    table:
+      nameTemplate: '%kernel.environment%_{identifier}'
+      defaults:
+        basePath: '%datalake.basePath%' # from config.yaml
+        layer: !expr 'dbIdentifier[:dbIdentifier.find("_")]' # bronze/silver/gold
+        domain: !expr 'dbIdentifier[dbIdentifier.find("_") + 1:]' # covid
+        targetPath: !expr 'basePath + "/" + layer + "/" + domain + "/" + tableIdentifier + ".delta"'

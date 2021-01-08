@@ -1,3 +1,11 @@
 parameters:
-  myparameter:
-    myvalue: 'This is a sample string config value'
+  datalake:
+    basePath: '/%kernel.environment%'
+
+  datalakebundle:
+    tables:
+      bronze_covid.tbl_template_1_mask_usage:
+        source_csv_path: 'dbfs:/databricks-datasets/COVID/covid-19-data/mask-use/mask-use-by-county.csv'
+
+      bronze_covid.tbl_template_2_confirmed_cases:
+        source_csv_path: 'dbfs:/databricks-datasets/COVID/USAFacts/covid_confirmed_usafacts.csv'

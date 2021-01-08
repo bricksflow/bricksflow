@@ -5,7 +5,9 @@ parameters:
         baseDir: 'src/__myproject__'
         patterns:
           - 'app/install_master_package.py'
-          - 'solutions/**/*.py'
+          - 'bronze/**/*.py'
+          - 'silver/**/*.py'
+          - 'gold/**/*.py'
     target:
       workspaceBaseDir: '%databricks.workspaceBaseDir%'
     databricks:

@@ -5,3 +5,5 @@ parameters:
         address: '%databricks.address%'
         clusterId: '%databricks.clusterId%'
         orgId: '%databricks.orgId%'
+    notebook:
+      testingPath: '/foo/bar/bronze/covid/tbl_template_2_confirmed_cases/tbl_template_2_confirmed_cases.py'

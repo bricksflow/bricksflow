@@ -1,13 +1,19 @@
 from injecta.config.YamlConfigReader import YamlConfigReader
 from injecta.container.ContainerInterface import ContainerInterface
-from __myproject__.Kernel import Kernel
+from pyfonybundles.loader import pyfonyBundlesLoader
+from pyfonycore.Kernel import Kernel
 from __myproject__.libRoot import getLibRoot
 
 def initContainer(appEnv: str) -> ContainerInterface:
+    bundles = [*pyfonyBundlesLoader.loadBundles()]
+
     kernel = Kernel(
         appEnv,
         getLibRoot() + '/_config',
-        YamlConfigReader()
+        YamlConfigReader(),
+        bundles
     )
 
-    return kernel.initContainer()
+    container = kernel.initContainer()
+
+    return container
