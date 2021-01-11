@@ -43,7 +43,7 @@ We recommend using the following IDEs:
 ```
 # check documentation on https://github.com/bricksflow/project-creator
 
-source <(curl -s https://raw.githubusercontent.com/bricksflow/project-creator/master/create_project.sh)
+curl -s https://raw.githubusercontent.com/bricksflow/project-creator/master/create_project.sh | bash -s bricksflow
 ```
 
 When the environment setup is completed, [configure your Databricks cluster connection details](https://docs.databricks.com/dev-tools/databricks-connect.html#step-2-configure-connection-properties):
