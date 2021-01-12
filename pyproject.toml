@@ -32,3 +32,4 @@ pylint = "2.4.*"
 
 [pyfony.bootstrap]
 rootModuleName = "__myproject__"
+allowedEnvironments = ['dev', 'test', 'aut', 'sx', 'prod']

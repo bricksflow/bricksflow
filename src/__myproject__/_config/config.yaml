@@ -1,11 +1,26 @@
 parameters:
+  myparameter:
+    myvalue: 'This is a sample string config value'
+
   datalake:
     basePath: '/%kernel.environment%'
 
   datalakebundle:
     tables:
+      # [database_name].[table_name]
+      # Bronze Covid tables
       bronze_covid.tbl_template_1_mask_usage:
-        source_csv_path: 'dbfs:/databricks-datasets/COVID/covid-19-data/mask-use/mask-use-by-county.csv'
+        params:
+          source_csv_path: 'dbfs:/databricks-datasets/COVID/covid-19-data/mask-use/mask-use-by-county.csv'
 
       bronze_covid.tbl_template_2_confirmed_cases:
-        source_csv_path: 'dbfs:/databricks-datasets/COVID/USAFacts/covid_confirmed_usafacts.csv'
+        params:
+          source_csv_path: 'dbfs:/databricks-datasets/COVID/USAFacts/covid_confirmed_usafacts.csv'
+
+      # Silver Covid tables
+      silver_covid.tbl_template_3_mask_usage:
+
+      # Gold tables
+      gold_reporting.tbl_template_4_mask_usage_per_county:
+
+      gold_solutions.template_5_solution:
