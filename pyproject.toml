@@ -22,7 +22,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "~3.7.3"
-databricks-bundle = ">=0.6.0a14"
+databricks-bundle = ">=0.6.0a15"
 datalake-bundle = ">=0.5.0a6"
 
 [tool.poetry.dev-dependencies]
