@@ -34,5 +34,4 @@ jobs:
           conda activate $PWD/.venv
           ~/.poetry/bin/poetry install --no-root --no-dev # remove all dev dependencies
           pip install databricks-connect==7.3.5 # pyspark is still needed
-          console container:test-init --env=dev
-          console container:test-init --env=prod
+          python src/__myproject__/AppTest.py

@@ -73,4 +73,4 @@ $ ca
 ## 5. Important scripts
 
 1. ```./pylint.sh``` - checks coding standards
-1. ```console container:test-init``` - runs tests
+1. ```python src/__myproject__/AppTest.py``` - runs tests
