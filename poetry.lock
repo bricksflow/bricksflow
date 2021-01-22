@@ -157,7 +157,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 
 [[package]]
 name = "console-bundle"
-version = "0.3.0a7"
+version = "0.3.0"
 description = "Console Bundle for the Pyfony Framework"
 category = "main"
 optional = false
@@ -165,8 +165,8 @@ python-versions = ">=3.7.3,<3.8.0"
 
 [package.dependencies]
 colorlog = ">=4.0.0,<4.1.0"
-pyfony-bundles = ">=0.2.5a5"
-pyfony-core = ">=0.7.0a8"
+pyfony-bundles = ">=0.3.0,<0.4.0"
+pyfony-core = ">=0.7.0,<0.8.0"
 python-dotenv = ">=0.13.0,<0.14.0"
 
 [[package]]
@@ -182,18 +182,18 @@ databricks-cli = ">=0.9.0,<0.10.0"
 
 [[package]]
 name = "databricks-bundle"
-version = "0.6.0a18"
+version = "0.6.0"
 description = "Databricks bundle for the Pyfony framework"
 category = "main"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
 
 [package.dependencies]
-console-bundle = ">=0.3.0a7"
-injecta = ">=0.8.13b3"
-logger-bundle = ">=0.6.0a3"
-pyfony-bundles = ">=0.2.5a7"
-pyfony-core = ">=0.7.0a9"
+console-bundle = ">=0.3.0,<0.4.0"
+injecta = ">=0.9.0,<0.10.0"
+logger-bundle = ">=0.6.0,<0.7.0"
+pyfony-bundles = ">=0.3.0,<0.4.0"
+pyfony-core = ">=0.7.0,<0.8.0"
 
 [[package]]
 name = "databricks-cli"
@@ -212,7 +212,7 @@ tabulate = ">=0.7.7"
 
 [[package]]
 name = "databricks-connect"
-version = "7.3.5"
+version = "7.3.7"
 description = "Databricks Connect Client"
 category = "dev"
 optional = false
@@ -229,22 +229,22 @@ sql = ["pandas (>=0.23.2)", "pyarrow (>=0.15.1)"]
 
 [[package]]
 name = "datalake-bundle"
-version = "0.5.0a8"
+version = "0.5.0a9"
 description = "DataLake tables management bundle for the Bricksflow Framework"
 category = "main"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
 
 [package.dependencies]
-console-bundle = ">=0.3.0a7"
-databricks-bundle = ">=0.6.0a16"
-injecta = ">=0.8.13b2"
-pyfony-bundles = ">=0.2.5a7"
+console-bundle = ">=0.3.0,<0.4.0"
+databricks-bundle = ">=0.6.0,<0.7.0"
+injecta = ">=0.9.0,<0.10.0"
+pyfony-bundles = ">=0.3.0,<0.4.0"
 simpleeval = ">=0.9.10,<0.10.0"
 
 [[package]]
 name = "dbx-deploy"
-version = "0.13.0a7"
+version = "0.13.0"
 description = "Databricks Deployment Tool"
 category = "dev"
 optional = false
@@ -252,12 +252,12 @@ python-versions = ">=3.7.3,<3.8.0"
 
 [package.dependencies]
 boto3 = ">=1.16.0,<2.0.0"
-console-bundle = ">=0.3.0a7"
+console-bundle = ">=0.3.0,<0.4.0"
 databricks-api = ">=0.3.0,<0.4.0"
 dbx-notebook-exporter = ">=0.4.0,<0.5.0"
 nbconvert = ">=5.6.0,<5.7.0"
-pyfony-bundles = ">=0.2.5a5"
-pyfony-core = ">=0.7.0a8"
+pyfony-bundles = ">=0.3.0,<0.4.0"
+pyfony-core = ">=0.7.0,<0.8.0"
 pygit2 = ">=1.3.0,<1.4.0"
 python-box = ">=3.4.0,<3.5.0"
 tomlkit = ">=0.5.0,<0.6.0"
@@ -324,7 +324,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 
 [[package]]
 name = "injecta"
-version = "0.9.0a4"
+version = "0.9.0"
 description = "Dependency Injection Container Library"
 category = "main"
 optional = false
@@ -465,7 +465,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "logger-bundle"
-version = "0.6.0a4"
+version = "0.6.0"
 description = "Logger bundle for the Pyfony framework"
 category = "main"
 optional = false
@@ -473,7 +473,7 @@ python-versions = ">=3.7.3,<3.8.0"
 
 [package.dependencies]
 colorlog = ">=4.0.0,<4.1.0"
-pyfony-bundles = ">=0.2.5a5"
+pyfony-bundles = ">=0.3.0,<0.4.0"
 
 [[package]]
 name = "markupsafe"
@@ -632,7 +632,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "pyfony-bundles"
-version = "0.2.5a7"
+version = "0.3.1"
 description = "Pyfony Framework bundles base package"
 category = "main"
 optional = false
@@ -640,21 +640,21 @@ python-versions = ">=3.7.3,<3.8.0"
 
 [package.dependencies]
 importlib-metadata = ">=3.3.0"
-injecta = ">=0.9.0a4"
+injecta = ">=0.9.0,<0.10.0"
 python-box = ">=3.4.0,<3.5.0"
 tomlkit = ">=0.5.0,<0.6.0"
 
 [[package]]
 name = "pyfony-core"
-version = "0.7.0a9"
+version = "0.7.0"
 description = "Pyfony core"
 category = "main"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
 
 [package.dependencies]
-injecta = ">=0.8.12b3"
-pyfony-bundles = ">=0.2.5a7"
+injecta = ">=0.9.0,<0.10.0"
+pyfony-bundles = ">=0.3.0,<0.4.0"
 
 [[package]]
 name = "pygit2"
@@ -912,7 +912,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.7.3"
-content-hash = "286a815a4065a56bca219e8e4c1f015e7c787a5cd2c83fbc5f65ca499daff0be"
+content-hash = "88d41abe679a20340b6b3260f6f569001597b1b36892d1f44bf8efaa3674e942"
 
 [metadata.files]
 appnope = [
@@ -1010,31 +1010,28 @@ configparser = [
     {file = "configparser-5.0.1.tar.gz", hash = "sha256:005c3b102c96f4be9b8f40dafbd4997db003d07d1caa19f37808be8031475f2a"},
 ]
 console-bundle = [
-    {file = "console-bundle-0.3.0a7.tar.gz", hash = "sha256:1b4a1d624e20ecdac1856c8822aff63fe27c7a6c83064fd977b7c6c445120a3b"},
-    {file = "console_bundle-0.3.0a7-py3-none-any.whl", hash = "sha256:233c76af30689a89217e4f22c5de0a7897f90a4c3e1893d3c0dfe2ff8a907255"},
+    {file = "console_bundle-0.3.0-py3-none-any.whl", hash = "sha256:da9531bd472810953e09c06f06e96cab612e0a9bce0867efd454d0d4706406a2"},
 ]
 databricks-api = [
     {file = "databricks_api-0.3.0-py2.py3-none-any.whl", hash = "sha256:8f637288d05b3d214ea1636bb31d6423c751d85fdccd25fd0d0c86657e7c0abc"},
     {file = "databricks_api-0.3.0.tar.gz", hash = "sha256:3e37422b2e52b1d8aa68e3ce36034d86313170f56fac11f88295713d450dbd99"},
 ]
 databricks-bundle = [
-    {file = "databricks-bundle-0.6.0a18.tar.gz", hash = "sha256:6a6fbe88c74ece18caf2d3572ff768726fca0883fc694d24b0ca7a2592515be5"},
-    {file = "databricks_bundle-0.6.0a18-py3-none-any.whl", hash = "sha256:f8a425cad35a2db32594132703b4a2d9204e1442014b31c5ae887799473afc4f"},
+    {file = "databricks_bundle-0.6.0-py3-none-any.whl", hash = "sha256:938c1bda1e2ec788385073bb92934b988e976e66012f15a8a4f2035134bd75fb"},
 ]
 databricks-cli = [
     {file = "databricks-cli-0.9.1.tar.gz", hash = "sha256:1ebf123b5567c06b7583688077120ead075ca06938b9995d4acafa97863ed8ff"},
     {file = "databricks_cli-0.9.1-py2-none-any.whl", hash = "sha256:baeb52ddebe55305797e30641ebbc3c3f520535cd4df67afb05d06a90cc1b837"},
 ]
 databricks-connect = [
-    {file = "databricks-connect-7.3.5.tar.gz", hash = "sha256:c720298b05648f5de8f17de03f93d60ffb30c2d55ce2750e63c17c341a8de5e4"},
+    {file = "databricks-connect-7.3.7.tar.gz", hash = "sha256:35ead50a0550e65a7d6fd78e2c8e54095b53514fba85180768a2dbcdd3f2cf0b"},
 ]
 datalake-bundle = [
-    {file = "datalake-bundle-0.5.0a8.tar.gz", hash = "sha256:efeac0305e52bad7816aa0686aed26482ad9c36ac70cf3515cfaf8fab58e37e1"},
-    {file = "datalake_bundle-0.5.0a8-py3-none-any.whl", hash = "sha256:8af6d7f6ee7ebdab97b18c104a171939f1bb730536cc304db92f8dd7f758d8e5"},
+    {file = "datalake-bundle-0.5.0a9.tar.gz", hash = "sha256:1d84ea1147d37d06f25d707e2d288f739ca3dcc495425c9c97d3e3d27ffb5102"},
+    {file = "datalake_bundle-0.5.0a9-py3-none-any.whl", hash = "sha256:f7d9cfa413cebb16e599a087750b6617456b79627910a11cd5b37d022ec7f345"},
 ]
 dbx-deploy = [
-    {file = "dbx-deploy-0.13.0a7.tar.gz", hash = "sha256:ecf4ac43584edf470bdd5fa62cb835a70e2a3b574b8a66eca5a76abbfdcb3876"},
-    {file = "dbx_deploy-0.13.0a7-py3-none-any.whl", hash = "sha256:f231e728392ddf4b0120a647bf2c3e049ff7e53c8b11b8591180469f19db7942"},
+    {file = "dbx_deploy-0.13.0-py3-none-any.whl", hash = "sha256:5b9a6bc4096461c1dae9826671fa804dc0acda9b9fb78ee4152003a0c47a95dc"},
 ]
 dbx-notebook-exporter = [
     {file = "dbx-notebook-exporter-0.4.0.tar.gz", hash = "sha256:e3fd919ef3acabbd82ef1188633f1f9f8cfa6f7a08676f1a6833f912a91fab7b"},
@@ -1061,8 +1058,7 @@ importlib-metadata = [
     {file = "importlib_metadata-3.3.0.tar.gz", hash = "sha256:5c5a2720817414a6c41f0a49993908068243ae02c1635a228126519b509c8aed"},
 ]
 injecta = [
-    {file = "injecta-0.9.0a4-py3-none-any.whl", hash = "sha256:9f5b8109cd572a132b70cd5dece16fa8356fca1df8f25a960bc0f879b72445fa"},
-    {file = "injecta-0.9.0a4.tar.gz", hash = "sha256:42975a4e94d80154575a4ae4edf53a1936cdbeb3c6cfcb1f58aa021effadf486"},
+    {file = "injecta-0.9.0-py3-none-any.whl", hash = "sha256:99b29b4327b68e487009ecf504f5718108ed2369912a68ca4f3b564d41d46bcb"},
 ]
 ipython = [
     {file = "ipython-7.19.0-py3-none-any.whl", hash = "sha256:c987e8178ced651532b3b1ff9965925bfd445c279239697052561a9ab806d28f"},
@@ -1120,8 +1116,7 @@ lazy-object-proxy = [
     {file = "lazy_object_proxy-1.4.3-cp38-cp38-win_amd64.whl", hash = "sha256:59f79fef100b09564bc2df42ea2d8d21a64fdcda64979c0fa3db7bdaabaf6239"},
 ]
 logger-bundle = [
-    {file = "logger-bundle-0.6.0a4.tar.gz", hash = "sha256:af9ad683c6e0359953b4649fbee6914cdf78913531727063f63034e4eac0d8e8"},
-    {file = "logger_bundle-0.6.0a4-py3-none-any.whl", hash = "sha256:6906a647ad533b83a749e8dc541cea12dd4b94aee0c3f6849477eef581c82d0d"},
+    {file = "logger_bundle-0.6.0-py3-none-any.whl", hash = "sha256:145578de48e248a24bad072cc47a51759fba8ee15c863b4eedade1e33763ea07"},
 ]
 markupsafe = [
     {file = "MarkupSafe-1.1.1-cp27-cp27m-macosx_10_6_intel.whl", hash = "sha256:09027a7803a62ca78792ad89403b1b7a73a01c8cb65909cd876f7fcebd79b161"},
@@ -1210,12 +1205,11 @@ pycparser = [
     {file = "pycparser-2.20.tar.gz", hash = "sha256:2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"},
 ]
 pyfony-bundles = [
-    {file = "pyfony-bundles-0.2.5a7.tar.gz", hash = "sha256:36921e816bc893bc3dbe8d4b3557b078ce2683b7e156596b3b5473eb3e78385f"},
-    {file = "pyfony_bundles-0.2.5a7-py3-none-any.whl", hash = "sha256:0108c06dfd0d0964b0344603b8913766aa24e22e2c41119155929e985246060f"},
+    {file = "pyfony_bundles-0.3.1-py3-none-any.whl", hash = "sha256:e7e92bec1de451de13dacdd684f999fd1ffbfc7e7375bec1717c08ed249a7de1"},
 ]
 pyfony-core = [
-    {file = "pyfony-core-0.7.0a9.tar.gz", hash = "sha256:b1ff67e72164b9b995d4fdea8506ccadfd2755fe699eec5c8682ee5f838a2f4b"},
-    {file = "pyfony_core-0.7.0a9-py3-none-any.whl", hash = "sha256:4e98e92fd2d242a1fc52760138b3783330859191d93daa73f87b5d5065669fd0"},
+    {file = "pyfony-core-0.7.0.tar.gz", hash = "sha256:868e17fa3e1721e72690a755b11ede33beaa18943eb7d3439998fb60573285c7"},
+    {file = "pyfony_core-0.7.0-py3-none-any.whl", hash = "sha256:62a5391bd02d241d9aba5b78a32ce3d99a5adc10ea626b26aa8998be071ca17e"},
 ]
 pygit2 = [
     {file = "pygit2-1.3.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:64d033b76b7e489cf968e9a7cf5d9b9928ca7b3d41c1285b9c098b663e7c12ec"},
