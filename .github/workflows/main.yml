@@ -18,20 +18,16 @@ jobs:
           sed -i 's/DBX_TOKEN=/DBX_TOKEN=abcdefgh123456789/g' .env # remove DBX_TOKEN env var from .env
           export SHELL=$SHELL # for python to be able to access the bash version
           ./env-init.sh -y --verbose
-      - name: pylint
+      - name: linting
         run: |
           eval "$(conda shell.bash hook)"
           conda activate $PWD/.venv
-          ./pylint.sh
-      - name: crlf
-        run: |
-          eval "$(conda shell.bash hook)"
-          conda activate $PWD/.venv
-          ./check-crlf.sh
+          poe black-check
+          poe flake8
       - name: containerChecks
         run: |
           eval "$(conda shell.bash hook)"
           conda activate $PWD/.venv
           ~/.poetry/bin/poetry install --no-root --no-dev # remove all dev dependencies
-          pip install databricks-connect==7.3.5 # pyspark is still needed
-          python src/__myproject__/AppTest.py
+          pip install databricks-connect==7.3.7 # pyspark is still needed
+          poe container-check

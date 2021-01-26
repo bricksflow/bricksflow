@@ -21,15 +21,26 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "~3.7.3"
-databricks-bundle = "^0.6.0"
-datalake-bundle = ">=0.5.0a9"
+python = ">=3.7.1,<4.0.0"
+databricks-bundle = ">=0.7.0a1"
+datalake-bundle = ">=0.5.0a16"
+injecta = "^0.9.2"
+pandas = "1.0.1"
 
 [tool.poetry.dev-dependencies]
-pyfony-core = "^0.7.0"
+pyfony-core = "^0.7.1"
 databricks-connect = ">=7.3.7"
-dbx-deploy = "^0.13.0"
-pylint = "2.4.*"
+dbx-deploy = "^0.13.1"
+black = "^20.8b1"
+poethepoet = ">=0.9.0,<1.0.0"
+flake8 = "^3.8"
+pep8-naming = ">=0.11.1,<1.0.0"
 
 [pyfony.bootstrap]
 rootModuleName = "__myproject__"
+
+[tool.poe.tasks]
+black = "black --line-length=140 src"
+black-check = "black --line-length=140 --check src"
+flake8 = "flake8 --ignore=E501,W503 src"
+container-check = "python src/__myproject__/ContainerTest.py"

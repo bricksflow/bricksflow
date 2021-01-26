@@ -2,7 +2,7 @@
 parameters:
   datalakebundle:
     notebook:
-      scriptPathTemplate: '{rootModulePath}/{layer}/{domain}/{tableIdentifier}/{tableIdentifier}.py'
+      moduleTemplate: '%bricksflow.rootModule.name%.{layer}.{domain}.{tableIdentifier}.{tableIdentifier}'
     table:
       nameTemplate: '%kernel.environment%_{identifier}'
       defaults:

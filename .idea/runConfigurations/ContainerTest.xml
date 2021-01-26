@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="AppTest" type="tests" factoryName="Unittests">
+  <configuration default="false" name="ContainerTest" type="tests" factoryName="Unittests">
     <module name="__bricksflow__" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
@@ -25,7 +25,7 @@
     </EXTENSION>
     <option name="_new_pattern" value="&quot;&quot;" />
     <option name="_new_additionalArguments" value="&quot;&quot;" />
-    <option name="_new_target" value="&quot;AppTest.AppTest&quot;" />
+    <option name="_new_target" value="&quot;__myproject__.ContainerTest&quot;" />
     <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     <method v="2" />
   </configuration>

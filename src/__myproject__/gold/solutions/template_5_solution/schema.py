@@ -1,13 +1,16 @@
-import pyspark.sql.types as T
+import pyspark.sql.types as t
 
-def getSchema():
-    return T.StructType([
-        T.StructField('EXECUTE_DATE', T.DateType(), True),
-        T.StructField('COUNTY_NAME', T.StringType(), True),
-        T.StructField('CONFIG_YAML_PARAMETER', T.StringType(), True),
-        T.StructField('AVG_NEVER', T.DoubleType(), True),
-        T.StructField('AVG_RARELY', T.IntegerType(), True),
-        T.StructField('AVG_SOMETIMES', T.IntegerType(), True),
-        T.StructField('AVG_FREQUENTLY', T.IntegerType(), True),
-        T.StructField('AVG_ALWAYS', T.IntegerType(), True),
-    ])
+
+def getSchema():  # noqa: N802
+    return t.StructType(
+        [
+            t.StructField("EXECUTE_DATE", t.DateType(), True),
+            t.StructField("COUNTY_NAME", t.StringType(), True),
+            t.StructField("CONFIG_YAML_PARAMETER", t.StringType(), True),
+            t.StructField("AVG_NEVER", t.DoubleType(), True),
+            t.StructField("AVG_RARELY", t.IntegerType(), True),
+            t.StructField("AVG_SOMETIMES", t.IntegerType(), True),
+            t.StructField("AVG_FREQUENTLY", t.IntegerType(), True),
+            t.StructField("AVG_ALWAYS", t.IntegerType(), True),
+        ]
+    )

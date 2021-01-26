@@ -1,2 +1,0 @@
-[MESSAGES CONTROL]
-disable=missing-docstring, wrong-import-order, duplicate-code, line-too-long, bad-continuation, too-many-arguments, too-few-public-methods, ungrouped-imports, no-self-use, duplicate-string-formatting-argument

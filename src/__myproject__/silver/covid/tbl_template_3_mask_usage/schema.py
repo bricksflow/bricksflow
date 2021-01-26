@@ -1,45 +1,88 @@
-import pyspark.sql.types as T
+import pyspark.sql.types as t
 
-def getSchema():
-    return T.StructType([
-        T.StructField('COUNTYFP', T.IntegerType(), True, {
-            'source_column': '',
-            'source_table': '',
-            'comment': 'This is example comment',
-        }),
-        T.StructField('NEVER', T.DoubleType(), True, {
-            'source_column': '',
-            'source_table': '',
-            'comment': 'Comment visible in Databricks',
-        }),
-        T.StructField('RARELY', T.DoubleType(), True, {
-            'source_column': '',
-            'source_table': '',
-            'comment': '',
-        }),
-        T.StructField('SOMETIMES', T.DoubleType(), True, {
-            'source_column': '',
-            'source_table': '',
-            'comment': '',
-        }),
-        T.StructField('FREQUENTLY', T.DoubleType(), True, {
-            'source_column': '',
-            'source_table': '',
-            'comment': '',
-        }),
-        T.StructField('ALWAYS', T.DoubleType(), True, {
-            'source_column': '',
-            'source_table': '',
-            'comment': '',
-        }),
-        T.StructField('EXECUTE_DATETIME', T.TimestampType(), False, {
-            'source_column': '',
-            'source_table': '',
-            'comment': '',
-        }),
-        T.StructField('CONFIG_YAML_PARAMETER', T.StringType(), False, {
-            'source_column': '',
-            'source_table': '',
-            'comment': '',
-        })
-])
+
+def getSchema():  # noqa: N802
+    return t.StructType(
+        [
+            t.StructField(
+                "COUNTYFP",
+                t.IntegerType(),
+                True,
+                {
+                    "source_column": "",
+                    "source_table": "",
+                    "comment": "This is example comment",
+                },
+            ),
+            t.StructField(
+                "NEVER",
+                t.DoubleType(),
+                True,
+                {
+                    "source_column": "",
+                    "source_table": "",
+                    "comment": "Comment visible in Databricks",
+                },
+            ),
+            t.StructField(
+                "RARELY",
+                t.DoubleType(),
+                True,
+                {
+                    "source_column": "",
+                    "source_table": "",
+                    "comment": "",
+                },
+            ),
+            t.StructField(
+                "SOMETIMES",
+                t.DoubleType(),
+                True,
+                {
+                    "source_column": "",
+                    "source_table": "",
+                    "comment": "",
+                },
+            ),
+            t.StructField(
+                "FREQUENTLY",
+                t.DoubleType(),
+                True,
+                {
+                    "source_column": "",
+                    "source_table": "",
+                    "comment": "",
+                },
+            ),
+            t.StructField(
+                "ALWAYS",
+                t.DoubleType(),
+                True,
+                {
+                    "source_column": "",
+                    "source_table": "",
+                    "comment": "",
+                },
+            ),
+            t.StructField(
+                "EXECUTE_DATETIME",
+                t.TimestampType(),
+                False,
+                {
+                    "source_column": "",
+                    "source_table": "",
+                    "comment": "",
+                },
+            ),
+            t.StructField(
+                "CONFIG_YAML_PARAMETER",
+                t.StringType(),
+                False,
+                {
+                    "source_column": "",
+                    "source_table": "",
+                    "comment": "",
+                },
+            ),
+        ]
+    )

@@ -7,8 +7,8 @@
 # It is recommended to set the APP_ENV variable on cluster-level rather than in a notebook
 import os
 
-if 'APP_ENV' not in os.environ:
-    os.environ['APP_ENV'] = 'dev'
+if "APP_ENV" not in os.environ:
+    os.environ["APP_ENV"] = "dev"
 
 # COMMAND ----------
 

@@ -5,12 +5,12 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC 
+# MAGIC
 # MAGIC ## Requirements for running this notebook
 
 # COMMAND ----------
 
-# DBTITLE 0,1. 
+# DBTITLE 0,1.
 # MAGIC %sql
 # MAGIC /* Setting up databases */
 # MAGIC create database if not exists dev_bronze_covid;
@@ -33,31 +33,27 @@
 # COMMAND ----------
 
 from datetime import datetime
-from pyspark.sql import functions as F
+from pyspark.sql import functions as f
 from logging import Logger
-from datalakebundle.table.TableManager import TableManager
 from pyspark.sql import SparkSession
 from pyspark.sql.dataframe import DataFrame
-from databricksbundle.notebook.decorators import dataFrameLoader, transformation, dataFrameSaver, tableParams
-from datalakebundle.table.TableNames import TableNames
+from datalakebundle.notebook.decorators import dataFrameLoader, transformation, dataFrameSaver, tableParams
+from datalakebundle.table.TableManager import TableManager
 
 # COMMAND ----------
 
-@dataFrameLoader(
-    tableParams('bronze_covid.tbl_template_1_mask_usage').source_csv_path,
-    display=False
-)
+
+@dataFrameLoader(tableParams("bronze_covid.tbl_template_1_mask_usage").source_csv_path, display=False)
 def read_csv_mask_usage(source_csv_path: str, spark: SparkSession, logger: Logger):
     logger.info(f"Reading CSV from source path: `{source_csv_path}`.")
     return (
-        spark
-            .read
-            .format('csv')
-            .option('header', 'true')
-            .option('inferSchema', 'true') # Tip: it might be better idea to define schema!
-            .load(source_csv_path)
-            .limit(10) # only for test
+        spark.read.format("csv")
+        .option("header", "true")
+        .option("inferSchema", "true")  # Tip: it might be better idea to define schema!
+        .load(source_csv_path)
+        .limit(10)  # only for test
     )
+
 
 # COMMAND ----------
 
@@ -68,17 +64,17 @@ def read_csv_mask_usage(source_csv_path: str, spark: SparkSession, logger: Logge
 # MAGIC - *@transformation* - use for any kind of dataframe transformation/step. You probably use many of those. Accepts Input dataframe and varibles from config, Returns dataframe.
 # MAGIC - *@dataFrameSaver* - use when saving dataframe to a table. Accepts only Input dataframe and varibles from config.
 # MAGIC - *@notebookFunction* - use when running any other Python code like - Mlflow, Widgets, Secrets,...
-# MAGIC 
+# MAGIC
 # MAGIC #### Decorators parameters
 # MAGIC It is possible to define some functionality by decorates. You have this possibilities:
-# MAGIC - Variables from config -> see section _Define param in config.yaml_ bellow 
+# MAGIC - Variables from config -> see section _Define param in config.yaml_ bellow
 # MAGIC - `display=True/False`
 # MAGIC   Do you use display(df) function to show content of a dataframe? This parameter is exactly the same. By using it as decorator param we are able to easily deactivate it in production where it is not necessary. Set the parameter to True to show data preview or False to skip preview.
-# MAGIC   
+# MAGIC
 # MAGIC   <img src="https://github.com/richardcerny/bricksflow/raw/rc-bricksflow2.1/docs/img/display_true.png?raw=true" width=800/>
-# MAGIC   
-# MAGIC   
-# MAGIC 
+# MAGIC
+# MAGIC
+# MAGIC
 
 # COMMAND ----------
 
@@ -86,11 +82,12 @@ def read_csv_mask_usage(source_csv_path: str, spark: SparkSession, logger: Logge
 
 # COMMAND ----------
 
+
 @transformation(read_csv_mask_usage, display=True)
 def add_column_insert_ts(df: DataFrame, logger: Logger):
     logger.info("Adding Insert timestamp")
-    return df.withColumn('INSERT_TS', F.lit(datetime.now()))
-    
+    return df.withColumn("INSERT_TS", f.lit(datetime.now()))
+
 
 # COMMAND ----------
 
@@ -103,37 +100,28 @@ def add_column_insert_ts(df: DataFrame, logger: Logger):
 # MAGIC df3.write...
 # MAGIC ```
 # MAGIC *Bricksflow does it a bit differently!*
-# MAGIC 
+# MAGIC
 # MAGIC Basically you use name of original function and place it as an input parameter to following(or any other) function`s @decorator. Thanks to this you are able to easilly navigate between functions in your IDE.
 # MAGIC See bellow how to pass dataframe from one function to another.
-# MAGIC 
+# MAGIC
 # MAGIC ![Passing dataframe between functions](https://github.com/richardcerny/bricksflow/raw/rc-bricksflow2.1/docs/img/df_passing.png)
-# MAGIC 
+# MAGIC
 # MAGIC You can see this in acion accross this notebook.
 
 # COMMAND ----------
 
+
 @dataFrameSaver(add_column_insert_ts)
-def save_table_bronze_covid_tbl_template_1_mask_usage(df: DataFrame, logger: Logger, tableNames: TableNames,  tableManager: TableManager):
-    
+def save_table_bronze_covid_tbl_template_1_mask_usage(df: DataFrame, logger: Logger, table_manager: TableManager):
+
     # Recreate = remove table and create again
-    tableManager.recreate('bronze_covid.tbl_template_1_mask_usage')
-    
-    outputTableName = tableNames.getByAlias('bronze_covid.tbl_template_1_mask_usage')
-    logger.info(f"Saving data to table: {outputTableName}")
+    table_manager.recreate("bronze_covid.tbl_template_1_mask_usage")
+
+    output_table_name = table_manager.getName("bronze_covid.tbl_template_1_mask_usage")
+    logger.info(f"Saving data to table: {output_table_name}")
     (
-        df
-            .select(
-                'COUNTYFP',
-                'NEVER',
-                'RARELY',
-                'SOMETIMES',
-                'FREQUENTLY',
-                'ALWAYS',
-                'INSERT_TS'
-            )
-            .write
-            .option('partitionOverwriteMode', 'dynamic')
-            .insertInto(outputTableName)
+        df.select("COUNTYFP", "NEVER", "RARELY", "SOMETIMES", "FREQUENTLY", "ALWAYS", "INSERT_TS")
+        .write.option("partitionOverwriteMode", "dynamic")
+        .insertInto(output_table_name)
     )
-    logger.info(f"Data successfully saved to: {outputTableName}")
+    logger.info(f"Data successfully saved to: {output_table_name}")

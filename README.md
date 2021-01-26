@@ -72,5 +72,5 @@ $ ca
 
 ## 5. Important scripts
 
-1. ```./pylint.sh``` - checks coding standards
-1. ```python src/__myproject__/AppTest.py``` - runs tests
+1. ```poe flake8``` - checks coding standards
+1. ```poe container-check``` - check app container consistency (if configured properly)

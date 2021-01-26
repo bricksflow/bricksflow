@@ -1,11 +1,15 @@
-import pyspark.sql.types as T
-def getSchema():
-    return T.StructType([
-        T.StructField('COUNTYFP', T.IntegerType(), True),
-        T.StructField('NEVER', T.DoubleType(), True),
-        T.StructField('RARELY', T.DoubleType(), True),
-        T.StructField('SOMETIMES', T.DoubleType(), True),
-        T.StructField('FREQUENTLY', T.DoubleType(), True),
-        T.StructField('ALWAYS', T.DoubleType(), True),
-        T.StructField('INSERT_TS', T.TimestampType(), True),
-    ])
+import pyspark.sql.types as t
+
+
+def getSchema():  # noqa: N802
+    return t.StructType(
+        [
+            t.StructField("COUNTYFP", t.IntegerType(), True),
+            t.StructField("NEVER", t.DoubleType(), True),
+            t.StructField("RARELY", t.DoubleType(), True),
+            t.StructField("SOMETIMES", t.DoubleType(), True),
+            t.StructField("FREQUENTLY", t.DoubleType(), True),
+            t.StructField("ALWAYS", t.DoubleType(), True),
+            t.StructField("INSERT_TS", t.TimestampType(), True),
+        ]
+    )
