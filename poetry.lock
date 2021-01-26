@@ -245,7 +245,7 @@ sql = ["pandas (>=0.23.2)", "pyarrow (>=0.15.1)"]
 
 [[package]]
 name = "datalake-bundle"
-version = "0.5.0a16"
+version = "0.5.0a17"
 description = "DataLake tables management bundle for the Bricksflow Framework"
 category = "main"
 optional = false
@@ -1020,7 +1020,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7.1,<4.0.0"
-content-hash = "87ebf8c244d6ec05a695786839c177e33b2e5b3f32bf74ee8e737fd914fc09bc"
+content-hash = "1335d788d91b51a0a5d339bc0f499876aea9b341b125b4a5a7bd85389dbc5129"
 
 [metadata.files]
 appdirs = [
@@ -1139,8 +1139,8 @@ databricks-connect = [
     {file = "databricks-connect-7.3.7.tar.gz", hash = "sha256:35ead50a0550e65a7d6fd78e2c8e54095b53514fba85180768a2dbcdd3f2cf0b"},
 ]
 datalake-bundle = [
-    {file = "datalake-bundle-0.5.0a16.tar.gz", hash = "sha256:6ef556282c8a455b72b52a971e66933340b6b627df88829666b6cf4bc5488021"},
-    {file = "datalake_bundle-0.5.0a16-py3-none-any.whl", hash = "sha256:9b58bc6775aee1ee3909d84f78e4fb048b5e59ce347ea08eeca02e4060e5177f"},
+    {file = "datalake-bundle-0.5.0a17.tar.gz", hash = "sha256:a15d0b63b18c2dd0862da511e915c4fffa7feedb30ce75dfd6f6a99cafbead29"},
+    {file = "datalake_bundle-0.5.0a17-py3-none-any.whl", hash = "sha256:e0f87c0fb922d0832805368f60e0422c2b7fc3d2582a31cfd1554ed7e43dca56"},
 ]
 dbx-deploy = [
     {file = "dbx_deploy-0.13.1-py3-none-any.whl", hash = "sha256:60220b44e003c3c3f790df1937e7258dfbd7bab5b9d4d186ca8b8eea4143cded"},
