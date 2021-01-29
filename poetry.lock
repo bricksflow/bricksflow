@@ -245,7 +245,7 @@ sql = ["pandas (>=0.23.2)", "pyarrow (>=0.15.1)"]
 
 [[package]]
 name = "datalake-bundle"
-version = "0.5.0a17"
+version = "0.5.0a18"
 description = "DataLake tables management bundle for the Bricksflow Framework"
 category = "main"
 optional = false
@@ -260,7 +260,7 @@ simpleeval = ">=0.9.10,<1.0.0"
 
 [[package]]
 name = "dbx-deploy"
-version = "0.13.1"
+version = "0.14.0b1"
 description = "Databricks Deployment Tool"
 category = "dev"
 optional = false
@@ -1020,7 +1020,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7.1,<4.0.0"
-content-hash = "62ea2da0e09aa8c1b9fd41ca55d0fb48d252629472c2fd321a887ffe42495e0c"
+content-hash = "c75171a723bb602bd2b2ac501fb0a4aae18b4f8444f81f0f3db28cdd2bc8b981"
 
 [metadata.files]
 appdirs = [
@@ -1139,11 +1139,12 @@ databricks-connect = [
     {file = "databricks-connect-7.3.7.tar.gz", hash = "sha256:35ead50a0550e65a7d6fd78e2c8e54095b53514fba85180768a2dbcdd3f2cf0b"},
 ]
 datalake-bundle = [
-    {file = "datalake-bundle-0.5.0a17.tar.gz", hash = "sha256:a15d0b63b18c2dd0862da511e915c4fffa7feedb30ce75dfd6f6a99cafbead29"},
-    {file = "datalake_bundle-0.5.0a17-py3-none-any.whl", hash = "sha256:e0f87c0fb922d0832805368f60e0422c2b7fc3d2582a31cfd1554ed7e43dca56"},
+    {file = "datalake-bundle-0.5.0a18.tar.gz", hash = "sha256:7cf143e3edcbae117277eb6b707be63721fa0dc8f4df1b089d4a07237bb39f0e"},
+    {file = "datalake_bundle-0.5.0a18-py3-none-any.whl", hash = "sha256:68ed932d79ec6f4a612be3f3d40c5cf73da3ddf70f3fee23668daa1a55e5e61d"},
 ]
 dbx-deploy = [
-    {file = "dbx_deploy-0.13.1-py3-none-any.whl", hash = "sha256:60220b44e003c3c3f790df1937e7258dfbd7bab5b9d4d186ca8b8eea4143cded"},
+    {file = "dbx-deploy-0.14.0b1.tar.gz", hash = "sha256:ca7a93f8ac35711a1456536b6ed8e52847da9137cad66690fc5141b7555ae34f"},
+    {file = "dbx_deploy-0.14.0b1-py3-none-any.whl", hash = "sha256:042aa394428243446794e059047d91c9fea8da21cc46dca0875b416255286820"},
 ]
 dbx-notebook-exporter = [
     {file = "dbx-notebook-exporter-0.4.0.tar.gz", hash = "sha256:e3fd919ef3acabbd82ef1188633f1f9f8cfa6f7a08676f1a6833f912a91fab7b"},
