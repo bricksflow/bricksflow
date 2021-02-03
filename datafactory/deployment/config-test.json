@@ -1,0 +1,28 @@
+{
+    "adap-cz-adi-adf-dev": [
+        {
+            "name": "$.properties.globalParameters.ENV.value",
+            "value": "$($Env:ENV)",
+            "action": "update"
+        },
+        {
+            "name": "$.properties.globalParameters.GIT_BRANCH.value",
+            "value": "$($Env:GIT_BRANCH)",
+            "action": "update"
+        }
+    ],
+    "AzureDatabricks": [
+        {
+            "name": "$.properties.typeProperties.domain",
+            "value": "$($Env:DBX_URL)",
+            "action": "update"
+        }
+    ],
+    "AzureKeyVault": [
+        {
+            "name": "$.properties.typeProperties.baseUrl",
+            "value": "https://adap-cz-adi-kv-$($Env:ENV).vault.azure.net/",
+            "action": "update"
+        }
+    ]
+}

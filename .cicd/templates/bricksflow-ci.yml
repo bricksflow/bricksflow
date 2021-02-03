@@ -1,0 +1,54 @@
+parameters:
+  - name: "serviceConnectionName"
+    type: "string"
+
+jobs:
+## TEST
+- job: Test
+  displayName: Test
+  dependsOn: []
+  continueOnError: false
+  pool:
+    vmImage: 'ubuntu-20.04'
+  workspace:
+    clean: all
+
+  steps:
+  # get Databricks token from Key Vault
+  - task: AzureKeyVault@1
+    displayName: 'Azure Key Vault: get Databricks token'
+    inputs:
+      azureSubscription: ${{ parameters.serviceConnectionName }}
+      KeyVaultName: '$(KEYVAULT_NAME)'
+      SecretsFilter: 'unit-dbx-token'
+  # envrionment initialization
+  - task: Bash@3
+    displayName: 'env-init.sh execute'
+    inputs:
+      targetType: inline
+      script: |
+        cp .env.dist .env
+        sed -i 's/DBX_TOKEN=/DBX_TOKEN=$(unit-dbx-token)/g' .env
+        export SHELL=$SHELL
+        ./env-init.sh -y --verbose
+#  - task: Bash@3
+#    displayName: 'Testing coding standards'
+#    inputs:
+#      targetType: inline
+#      script: |
+#        eval "$(conda shell.bash hook)"
+#        conda activate $PWD/.venv
+#        source $HOME/.poetry/env
+#        poe black-check
+#        poe flake8
+  # run Container tests
+  - task: Bash@3
+    displayName: 'Container tests'
+    inputs:
+      targetType: inline
+      script: |
+        eval "$(conda shell.bash hook)"
+        conda activate $PWD/.venv
+        ~/.poetry/bin/poetry install --no-root --no-dev # remove all dev dependencies
+        pip install databricks-connect==7.3.7 # pyspark is still needed
+        python src/__myproject__/ContainerTest.py

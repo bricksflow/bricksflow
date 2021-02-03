@@ -1,0 +1,83 @@
+parameters:
+  - name: "serviceConnectionName"
+    type: "string"
+  - name: "environmentName"
+    type: "string"
+
+## DEPLOY
+jobs:
+  - deployment: DeployDbxNtbs
+    displayName: Deploy Databricks notebooks
+    environment: ${{ parameters.environmentName }}
+    pool:
+      vmImage: 'ubuntu-20.04'
+    workspace:
+      clean: all
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            # checkout current repository
+            - checkout: self
+            # get Databricks variables (url, orgId)
+            - task: AzureCLI@2
+              name: getDbxVars
+              displayName: Get Databricks variables
+              inputs:
+                azureSubscription: ${{ parameters.serviceConnectionName }}
+                scriptType: 'bash'
+                scriptLocation: 'inlineScript'
+                inlineScript: |
+                  az extension add --name databricks
+                  echo "##vso[task.setvariable variable=WORKSPACE_URL;isOutput=true]\
+                  $(az databricks workspace show --resource-group $(RESOURCE_GROUP_NAME) \
+                                                   --name $(DBX_WS_NAME) \
+                                                   --query workspaceUrl -o tsv)"
+                  echo "##vso[task.setvariable variable=DBX_ORG_ID;isOutput=true]\
+                  $(az databricks workspace show --resource-group $(RESOURCE_GROUP_NAME) \
+                                                 --name $(DBX_WS_NAME) \
+                                                 --query workspaceId -o tsv)"
+            # get Databricks token from Key Vault
+            - task: AzureKeyVault@1
+              displayName: 'Azure Key Vault: get Databricks token'
+              inputs:
+                azureSubscription: ${{ parameters.serviceConnectionName }}
+                KeyVaultName: '$(KEYVAULT_NAME)'
+                SecretsFilter: 'unit-dbx-token'
+            # set orgId and Workspace Url to env based config for deployment
+            - task: Bash@3
+              displayName: 'Set DBX orgID and DBX url for deployment'
+              inputs:
+                targetType: inline
+                script: |
+                  sed -i "s/address: .*/address: https:\/\/$(getDbxVars.WORKSPACE_URL)/g" src/__myproject__/_config/config_$(ENV).yaml
+                  sed -i "s/orgId: '.*'/orgId: '$(getDbxVars.DBX_ORG_ID)'/g" src/__myproject__/_config/config_$(ENV).yaml
+                  cat src/__myproject__/_config/config_$(ENV).yaml
+            # environment initialization
+            - task: Bash@3
+              displayName: 'env-init.sh execute'
+              inputs:
+                targetType: inline
+                script: |
+                  cp .env.dist .env
+                  sed -i 's/DBX_TOKEN=/DBX_TOKEN=$(unit-dbx-token)/g' .env
+                  export SHELL=$SHELL
+                  ./env-init.sh -y --verbose
+            # deployment of notebooks to Dbx workspace
+            - task: Bash@3
+              displayName: 'Notebooks Deployment'
+              inputs:
+                targetType: inline
+                script: |
+                  eval "$(conda shell.bash hook)"
+                  source $HOME/.poetry/env
+                  conda activate $PWD/.venv
+                  git checkout $(CURRENT_BRANCH)
+                  console dbx:deploy --env=$(ENV)
+            - task: Bash@3
+              displayName: 'Link to Databricks workspace'
+              inputs:
+                targetType: inline
+                script: |
+                  link="Link to deployed notebooks: https://$(getDbxVars.WORKSPACE_URL)"
+                  echo "$link"

@@ -1,0 +1,113 @@
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
+
+resources:
+  repositories:
+    - repository: adi
+      type: git
+      name: adi
+
+variables:
+  # read main variables from infra variables definition
+  - template: .cicd/variables/variables.yml@adi
+
+  - name: CURRENT_BRANCH
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/') }}:
+      value: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
+      value: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
+
+trigger:
+  branches:
+    include:
+      - master
+      - feature-*
+      - hotfix-*
+
+stages:
+  - stage: DataFactoryCI
+    dependsOn: []
+    displayName: Build & Test Data Factory
+    jobs:
+      - template: templates/datafactory-ci.yml
+
+  - stage: DataFactoryCDdev
+    displayName: Deploy Data Factory to dev environment
+    dependsOn: DataFactoryCI
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+    variables:
+      - template: .cicd/variables/variables-dev.yml@adi
+    jobs:
+      - template: templates/datafactory-cd.yml
+        parameters:
+          serviceConnectionName: '$(SERVICE_CONNECTION_NAME_DEV)'
+          environmentName: 'dev'
+
+  - stage: DataFactoryCDtest
+    displayName: Deploy Data Factory to test environment
+    dependsOn: DataFactoryCI
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+    variables:
+      - template: .cicd/variables/variables-test.yml@adi
+    jobs:
+      - template: templates/datafactory-cd.yml
+        parameters:
+          serviceConnectionName: '$(SERVICE_CONNECTION_NAME_TEST)'
+          environmentName: 'test'
+
+  - stage: DataFactoryCDprod
+    displayName: Deploy Data Factory to prod environment
+    dependsOn: DataFactoryCI
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+    variables:
+      - template: .cicd/variables/variables-prod.yml@adi
+    jobs:
+      - template: templates/datafactory-cd.yml
+        parameters:
+          serviceConnectionName: '$(SERVICE_CONNECTION_NAME_PROD)'
+          environmentName: 'prod'
+
+  - stage: BricksflowCI
+    dependsOn: []
+    displayName: Build & Test Bricksflow
+    variables:
+      - template: .cicd/variables/variables-dev.yml@adi
+    jobs:
+      - template: templates/bricksflow-ci.yml
+        parameters:
+          serviceConnectionName: '$(SERVICE_CONNECTION_NAME_DEV)'
+
+  - stage: BricksflowCDdev
+    displayName: Deploy Bricksflow to dev environment
+    dependsOn: BricksflowCI
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    variables:
+      - template: .cicd/variables/variables-dev.yml@adi
+    jobs:
+      - template: templates/bricksflow-cd.yml
+        parameters:
+          serviceConnectionName: '$(SERVICE_CONNECTION_NAME_DEV)'
+          environmentName: 'dev'
+
+  - stage: BricksflowCDtest
+    displayName: Deploy Bricksflow to test environment
+    dependsOn: BricksflowCI
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+    variables:
+      - template: .cicd/variables/variables-test.yml@adi
+    jobs:
+      - template: templates/bricksflow-cd.yml
+        parameters:
+          serviceConnectionName: '$(SERVICE_CONNECTION_NAME_TEST)'
+          environmentName: 'test'
+
+  - stage: BricksflowCDprod
+    displayName: Deploy Bricksflow to prod environment
+    dependsOn: BricksflowCI
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+    variables:
+      - template: .cicd/variables/variables-prod.yml@adi
+    jobs:
+      - template: templates/bricksflow-cd.yml
+        parameters:
+          serviceConnectionName: '$(SERVICE_CONNECTION_NAME_PROD)'
+          environmentName: 'prod'

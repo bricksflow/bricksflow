@@ -6,4 +6,5 @@ parameters:
     address: https://westeurope.azuredatabricks.net
     clusterId: '0106-164555-acing965'
     orgId: '776384709737263' # Azure Databricks only
-    workspaceBaseDir: '/master-jirka' # change to '/{currentBranch}' to use current branch name as dir name
+    workspace:
+      baseDir: '/__myproject__/{currentBranch}'
