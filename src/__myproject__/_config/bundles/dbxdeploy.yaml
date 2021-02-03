@@ -9,7 +9,8 @@ parameters:
           - 'silver/**/*.py'
           - 'gold/**/*.py'
     target:
-      workspaceBaseDir: '%databricks.workspaceBaseDir%'
+      workspace:
+        baseDir: '%databricks.workspace.baseDir%'
     databricks:
       host: '%databricks.address%'
       token: '%env(DBX_TOKEN)%'

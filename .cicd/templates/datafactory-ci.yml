@@ -1,0 +1,35 @@
+jobs:
+## TEST
+- job: Test
+  displayName: Test
+  dependsOn: []
+  continueOnError: false
+  pool:
+    vmImage: 'ubuntu-20.04'
+  workspace:
+    clean: all
+
+  steps:
+  # install azure.datafactory.tools module
+  - task: PowerShell@2
+    displayName: 'Install module azure.datafactory.tools'
+    inputs:
+      failOnStderr: true
+      targetType: inline
+      script: |
+        Install-Module Az.DataFactory -MinimumVersion "1.10.0" -Force
+        Install-Module -Name "azure.datafactory.tools" -Force
+        Import-Module -Name "azure.datafactory.tools" -Force
+
+  # TODO: Data Factory validation as soon as this module releases this feature - https://github.com/SQLPlayer/azure.datafactory.tools
+  - task: PowerShell@2
+    displayName: 'Validate Data Factory'
+    inputs:
+      failOnStderr: true
+      targetType: inline
+      script: |
+        Write-Host Validating Data Factory
+        
+        # TODO
+
+        Write-Host Data Factory validated

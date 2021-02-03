@@ -1,0 +1,16 @@
+{
+	"name": "adap-cz-adi-adf-dev",
+	"properties": {
+		"globalParameters": {
+			"ENV": {
+				"type": "string",
+				"value": "dev"
+			},
+			"GIT_BRANCH": {
+				"type": "string",
+				"value": "master"
+			}
+		}
+	},
+	"location": "westeurope"
+}

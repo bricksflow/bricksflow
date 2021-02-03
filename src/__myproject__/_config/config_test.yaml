@@ -4,7 +4,7 @@ imports:
 parameters:
   databricks:
     address: https://westeurope.azuredatabricks.net
-    clusterId: '[Your PROD cluster ID]'
-    orgId: '[Your PROD orgId]' # Azure Databricks only
+    clusterId: '[Your TEST cluster ID]'
+    orgId: '[Your TEST orgId]' # Azure Databricks only
     workspace:
       baseDir: '/__myproject__/{currentBranch}'
