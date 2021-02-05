@@ -10,15 +10,6 @@
 
 # COMMAND ----------
 
-# DBTITLE 0,1.
-# MAGIC %sql
-# MAGIC /* Setting up databases */
-# MAGIC create database if not exists dev_bronze_covid;
-# MAGIC create database if not exists dev_silver_covid;
-# MAGIC create database if not exists dev_gold_reporting
-
-# COMMAND ----------
-
 # MAGIC %md ## Running the first Bricksflow-powered notebook
 
 # COMMAND ----------
@@ -32,6 +23,7 @@
 
 # COMMAND ----------
 
+import os
 from datetime import datetime
 from pyspark.sql import functions as f
 from logging import Logger
@@ -39,6 +31,12 @@ from pyspark.sql import SparkSession
 from pyspark.sql.dataframe import DataFrame
 from datalakebundle.notebook.decorators import dataFrameLoader, transformation, dataFrameSaver, tableParams
 from datalakebundle.table.TableManager import TableManager
+
+# COMMAND ----------
+
+spark.sql(f"create database if not exists {os.environ['APP_ENV']}_bronze_covid;")
+spark.sql(f"create database if not exists {os.environ['APP_ENV']}_silver_covid;")
+spark.sql(f"create database if not exists {os.environ['APP_ENV']}_gold_reporting;")
 
 # COMMAND ----------
 
