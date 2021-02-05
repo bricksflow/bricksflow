@@ -16,6 +16,11 @@
             "name": "$.properties.typeProperties.domain",
             "value": "$($Env:DBX_URL)",
             "action": "update"
+        },
+        {
+            "name": "$.properties.typeProperties.newClusterSparkEnvVars.APP_ENV",
+            "value": "$($Env:ENV)",
+            "action": "update"
         }
     ],
     "AzureKeyVault": [
