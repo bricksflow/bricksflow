@@ -1,5 +1,5 @@
 {
-    "adap-cz-adi-adf-dev": [
+    "__factory__": [
         {
             "name": "$.properties.globalParameters.ENV.value",
             "value": "$($Env:ENV)",
@@ -21,7 +21,7 @@
     "AzureKeyVault": [
         {
             "name": "$.properties.typeProperties.baseUrl",
-            "value": "https://adap-cz-adi-kv-$($Env:ENV).vault.azure.net/",
+            "value": "https://$($Env:UNIT_NAME)-kv-$($Env:ENV).vault.azure.net/",
             "action": "update"
         }
     ]
