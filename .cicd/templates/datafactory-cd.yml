@@ -72,14 +72,13 @@ jobs:
                     -ObjectId $((Get-AzDataFactoryV2 -ResourceGroupName "$(RESOURCE_GROUP_NAME)" -Name $factoryName).identity.PrincipalId.Guid) `
                     -PermissionsToSecrets Get,List
 
-            - task: AzurePowerShell@4
+                  $factoryId = (Get-AzDataFactoryV2 -ResourceGroupName "$(RESOURCE_GROUP_NAME)" -Name $factoryName).DataFactoryId
+                  Write-Host "##vso[task.setvariable variable=FACTORY_URL;isOutput=true]$factoryId"
+
+            - task: Bash@3
               displayName: 'Link to ADF'
               inputs:
-                azureSubscription: ${{ parameters.serviceConnectionName }}
-                failOnStandardError: true
-                azurePowerShellVersion: latestVersion
-                scriptType: inlineScript
-                inline: |
-                  $factoryId = (Get-AzDataFactoryV2 -ResourceGroupName "$(RESOURCE_GROUP_NAME)" -Name $factoryName).DataFactoryId
-                  $link = "Link to deployed ADF: https://adf.azure.com/?factory=$factoryId"
-                  Write-Host "$link"
+                targetType: inline
+                script: |
+                  link="Link to deployed ADF: https://adf.azure.com/?factory=$(deployDataFactory.FACTORY_URL)"
+                  echo "$link"
