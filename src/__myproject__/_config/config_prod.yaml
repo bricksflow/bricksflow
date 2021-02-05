@@ -7,4 +7,4 @@ parameters:
     clusterId: '[Your PROD cluster ID]'
     orgId: '[Your PROD orgId]' # Azure Databricks only
     workspace:
-      baseDir: '/__myproject__/{currentBranch}'
+      baseDir: '/__myproject__'
