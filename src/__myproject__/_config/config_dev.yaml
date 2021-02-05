@@ -3,7 +3,7 @@ imports:
 
 parameters:
   databricks:
-    address: https://westeurope.azuredatabricks.net
+    address: https://adb-776384709737263.3.azuredatabricks.net
     clusterId: '0106-164555-acing965'
     orgId: '776384709737263' # Azure Databricks only
     workspace:
