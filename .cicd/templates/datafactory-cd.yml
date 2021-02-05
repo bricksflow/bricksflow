@@ -70,7 +70,8 @@ jobs:
                   Set-AzKeyVaultAccessPolicy `
                     -VaultName "$(KEYVAULT_NAME)" `
                     -ObjectId $((Get-AzDataFactoryV2 -ResourceGroupName "$(RESOURCE_GROUP_NAME)" -Name $factoryName).identity.PrincipalId.Guid) `
-                    -PermissionsToSecrets Get,List
+                    -PermissionsToSecrets Get,List `
+                    -BypassObjectIdValidation
 
                   $factoryId = (Get-AzDataFactoryV2 -ResourceGroupName "$(RESOURCE_GROUP_NAME)" -Name $factoryName).DataFactoryId
                   Write-Host "##vso[task.setvariable variable=FACTORY_URL;isOutput=true]$factoryId"
