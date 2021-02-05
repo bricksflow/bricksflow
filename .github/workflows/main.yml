@@ -32,4 +32,5 @@ jobs:
           source ~/.poetry/env
           ~/.poetry/bin/poetry install --no-root --no-dev # remove all dev dependencies
           pip install databricks-connect==7.3.7 # pyspark is still needed
+          pip install poethepoet
           poe container-check
