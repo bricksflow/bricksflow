@@ -8,3 +8,8 @@ parameters:
     orgId: '[Your PROD orgId]' # Azure Databricks only
     workspace:
       baseDir: '/__myproject__'
+
+  datalakebundle:
+    notebook:
+      display:
+        enabled: False
