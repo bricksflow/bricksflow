@@ -43,6 +43,7 @@ jobs:
                 inline: |
                   $Env:ENV = "${{ parameters.environmentName }}"
                   $Env:GIT_BRANCH = "$(CURRENT_BRANCH)"
+                  $Env:UNIT_NAME = "$(UNIT_NAME)"
                   $Env:DBX_URL = "https://" + $(Get-AzDatabricksWorkspace -ResourceGroupName "$(RESOURCE_GROUP_NAME)" -Name "$(DBX_WS_NAME)").Url
 
                   $options = New-AdfPublishOption
@@ -58,9 +59,6 @@ jobs:
                     $factoryName = "$(FACTORY_NAME)"
                   }
 
-                  $factoryId = (Get-AzDataFactoryV2 -ResourceGroupName "$(RESOURCE_GROUP_NAME)" -Name $factoryName).DataFactoryId
-                  Write-Host "##vso[task.setvariable variable=FACTORY_URL;isOutput=true]$factoryId"
-
                   Publish-AdfV2FromJson `
                     -RootFolder "datafactory" `
                     -ResourceGroupName "$(RESOURCE_GROUP_NAME)" `
@@ -74,10 +72,14 @@ jobs:
                     -ObjectId $((Get-AzDataFactoryV2 -ResourceGroupName "$(RESOURCE_GROUP_NAME)" -Name $factoryName).identity.PrincipalId.Guid) `
                     -PermissionsToSecrets Get,List
 
-            - task: Bash@3
+            - task: AzurePowerShell@4
               displayName: 'Link to ADF'
               inputs:
-                targetType: inline
-                script: |
-                  link="Link to deployed ADF: https://adf.azure.com/?factory=$(deployDataFactory.FACTORY_URL)"
-                  echo "$link"
+                azureSubscription: ${{ parameters.serviceConnectionName }}
+                failOnStandardError: true
+                azurePowerShellVersion: latestVersion
+                scriptType: inlineScript
+                inline: |
+                  $factoryId = (Get-AzDataFactoryV2 -ResourceGroupName "$(RESOURCE_GROUP_NAME)" -Name $factoryName).DataFactoryId
+                  $link = "Link to deployed ADF: https://adf.azure.com/?factory=$factoryId"
+                  Write-Host "$link"
