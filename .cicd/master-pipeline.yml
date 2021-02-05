@@ -56,7 +56,7 @@ stages:
 
   - stage: DataFactoryCDprod
     displayName: Deploy Data Factory to prod environment
-    dependsOn: DataFactoryCI
+    dependsOn: DataFactoryCDdev
     condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
     variables:
       - template: .cicd/variables/variables-prod.yml@adi
@@ -102,7 +102,7 @@ stages:
 
   - stage: BricksflowCDprod
     displayName: Deploy Bricksflow to prod environment
-    dependsOn: BricksflowCI
+    dependsOn: BricksflowCDdev
     condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
     variables:
       - template: .cicd/variables/variables-prod.yml@adi
