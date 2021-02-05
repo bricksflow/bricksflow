@@ -34,9 +34,9 @@ from datalakebundle.table.TableManager import TableManager
 
 # COMMAND ----------
 
-spark.sql(f"create database if not exists {os.environ['APP_ENV']}_bronze_covid;")
-spark.sql(f"create database if not exists {os.environ['APP_ENV']}_silver_covid;")
-spark.sql(f"create database if not exists {os.environ['APP_ENV']}_gold_reporting;")
+spark.sql(f"create database if not exists {os.environ['APP_ENV']}_bronze_covid;")  # noqa: F821
+spark.sql(f"create database if not exists {os.environ['APP_ENV']}_silver_covid;")  # noqa: F821
+spark.sql(f"create database if not exists {os.environ['APP_ENV']}_gold_reporting;")  # noqa: F821
 
 # COMMAND ----------
 
