@@ -260,7 +260,7 @@ simpleeval = ">=0.9.10,<1.0.0"
 
 [[package]]
 name = "dbx-deploy"
-version = "0.14.0b1"
+version = "0.14.0b2"
 description = "Databricks Deployment Tool"
 category = "dev"
 optional = false
@@ -1144,8 +1144,8 @@ datalake-bundle = [
     {file = "datalake_bundle-0.5.0a18-py3-none-any.whl", hash = "sha256:68ed932d79ec6f4a612be3f3d40c5cf73da3ddf70f3fee23668daa1a55e5e61d"},
 ]
 dbx-deploy = [
-    {file = "dbx-deploy-0.14.0b1.tar.gz", hash = "sha256:ca7a93f8ac35711a1456536b6ed8e52847da9137cad66690fc5141b7555ae34f"},
-    {file = "dbx_deploy-0.14.0b1-py3-none-any.whl", hash = "sha256:042aa394428243446794e059047d91c9fea8da21cc46dca0875b416255286820"},
+    {file = "dbx-deploy-0.14.0b2.tar.gz", hash = "sha256:b2dd7021afa596a51bdffb052c32dfbe74cc57334a191cedca4f1f514802b765"},
+    {file = "dbx_deploy-0.14.0b2-py3-none-any.whl", hash = "sha256:a5edc178ff8331dc656a82422ddda94d8c08273c2dc37b78ff0f3adaca5325d0"},
 ]
 dbx-notebook-exporter = [
     {file = "dbx-notebook-exporter-0.4.0.tar.gz", hash = "sha256:e3fd919ef3acabbd82ef1188633f1f9f8cfa6f7a08676f1a6833f912a91fab7b"},
