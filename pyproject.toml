@@ -39,7 +39,7 @@ pep8-naming = ">=0.11.1,<1.0.0"
 
 [pyfony.bootstrap]
 rootModuleName = "__myproject__"
-allowedEnvironments = ["dev", "test", "demo"]
+allowedEnvironments = ["dev", "test", "prod"]
 
 [tool.poe.tasks]
 black = "black --line-length=140 src"
