@@ -79,5 +79,12 @@ jobs:
               inputs:
                 targetType: inline
                 script: |
-                  link="Link to deployed notebooks: https://$(getDbxVars.WORKSPACE_URL)"
-                  echo "$link"
+                  MSG=$(cat <<-END
+                    Hi there!
+                    -> If you are opening provided Databricks workspace for the first time you need to open it from https://portal.azure.com/
+                    -> Go to $(RESOURCE_GROUP_NAME) and find there the $(DBX_WS_NAME) and Launch workspace.
+                    -> Otherwise you can opet the workspace directly in the link below.
+                    -> Link to deployed notebooks https://$(getDbxVars.WORKSPACE_URL)
+                  END
+                  )
+                  echo "$MSG"
