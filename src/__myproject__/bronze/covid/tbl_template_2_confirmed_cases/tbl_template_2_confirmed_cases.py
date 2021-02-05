@@ -41,11 +41,11 @@ def rename_columns(df: DataFrame):
 
 # COMMAND ----------
 
-display(rename_columns_df)
+display(rename_columns_df)  # noqa: F821
 
 # COMMAND ----------
 
-print(rename_columns_df.printSchema())
+print(rename_columns_df.printSchema())  # noqa: F821
 
 # COMMAND ----------
 
