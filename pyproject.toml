@@ -22,7 +22,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.7.1,<4.0.0"
-databricks-bundle = ">=0.7.0a1"
+databricks-bundle = "^0.7.0"
 datalake-bundle = ">=0.5.0a18"
 injecta = "^0.9.2"
 pandas = "1.0.1"
@@ -31,7 +31,7 @@ numpy = "1.18.1"
 [tool.poetry.dev-dependencies]
 pyfony-core = "^0.7.1"
 databricks-connect = ">=7.3.7"
-dbx-deploy = ">=0.14.0b1"
+dbx-deploy = ">=0.14.0b3"
 black = "^20.8b1"
 poethepoet = ">=0.9.0,<1.0.0"
 flake8 = "^3.8"
@@ -41,8 +41,11 @@ pep8-naming = ">=0.11.1,<1.0.0"
 rootModuleName = "__myproject__"
 allowedEnvironments = ["dev", "test", "prod"]
 
+[tool.black]
+line-length = 140
+
 [tool.poe.tasks]
-black = "black --line-length=140 src"
-black-check = "black --line-length=140 --check src"
+black = "black src"
+black-check = "black --check src"
 flake8 = "flake8 --ignore=E501,W503 src"
 container-check = "python src/__myproject__/ContainerTest.py"

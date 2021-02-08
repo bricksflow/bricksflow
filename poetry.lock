@@ -198,8 +198,8 @@ databricks-cli = ">=0.9.0,<0.10.0"
 
 [[package]]
 name = "databricks-bundle"
-version = "0.7.0a1"
-description = "Databricks bundle for the Pyfony framework"
+version = "0.7.0"
+description = "Databricks bundle for the Bricksflow framework"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
@@ -260,7 +260,7 @@ simpleeval = ">=0.9.10,<1.0.0"
 
 [[package]]
 name = "dbx-deploy"
-version = "0.14.0b2"
+version = "0.14.0b3"
 description = "Databricks Deployment Tool"
 category = "dev"
 optional = false
@@ -1020,7 +1020,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7.1,<4.0.0"
-content-hash = "c75171a723bb602bd2b2ac501fb0a4aae18b4f8444f81f0f3db28cdd2bc8b981"
+content-hash = "e940ca7980d2572a5f7a669ee4f64ef204a91f516bb07e503f069225f8f02b7d"
 
 [metadata.files]
 appdirs = [
@@ -1129,8 +1129,7 @@ databricks-api = [
     {file = "databricks_api-0.3.0.tar.gz", hash = "sha256:3e37422b2e52b1d8aa68e3ce36034d86313170f56fac11f88295713d450dbd99"},
 ]
 databricks-bundle = [
-    {file = "databricks-bundle-0.7.0a1.tar.gz", hash = "sha256:8f226c95b659a7b9a44f988a21bc128e8f1673483ba2ee39fec13da849acee20"},
-    {file = "databricks_bundle-0.7.0a1-py3-none-any.whl", hash = "sha256:07ec87cc217619dcc3ef30218c44bb40251fb52fbb0218a5af78c8a9f6357369"},
+    {file = "databricks_bundle-0.7.0-py3-none-any.whl", hash = "sha256:b36e10ec32228e0544e7f8bdfda770e23c22f172d935728acd4ccfdf89248c36"},
 ]
 databricks-cli = [
     {file = "databricks-cli-0.9.1.tar.gz", hash = "sha256:1ebf123b5567c06b7583688077120ead075ca06938b9995d4acafa97863ed8ff"},
@@ -1144,8 +1143,8 @@ datalake-bundle = [
     {file = "datalake_bundle-0.5.0a18-py3-none-any.whl", hash = "sha256:68ed932d79ec6f4a612be3f3d40c5cf73da3ddf70f3fee23668daa1a55e5e61d"},
 ]
 dbx-deploy = [
-    {file = "dbx-deploy-0.14.0b2.tar.gz", hash = "sha256:b2dd7021afa596a51bdffb052c32dfbe74cc57334a191cedca4f1f514802b765"},
-    {file = "dbx_deploy-0.14.0b2-py3-none-any.whl", hash = "sha256:a5edc178ff8331dc656a82422ddda94d8c08273c2dc37b78ff0f3adaca5325d0"},
+    {file = "dbx-deploy-0.14.0b3.tar.gz", hash = "sha256:e7c16ffd37a85cd8792d7a4445f11725f8a4e32a1c65933c7ff7991ae4b44680"},
+    {file = "dbx_deploy-0.14.0b3-py3-none-any.whl", hash = "sha256:29b94909133add428147de6197996ffb7e452c21b0851f9abb993bf97e91a347"},
 ]
 dbx-notebook-exporter = [
     {file = "dbx-notebook-exporter-0.4.0.tar.gz", hash = "sha256:e3fd919ef3acabbd82ef1188633f1f9f8cfa6f7a08676f1a6833f912a91fab7b"},
