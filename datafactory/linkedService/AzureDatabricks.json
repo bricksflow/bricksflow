@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "AzureDatabricks",
 		"typeProperties": {
-			"domain": "https://adb-3076017168624144.4.azuredatabricks.net",
+			"domain": "__dbxurl__",
 			"accessToken": {
 				"type": "AzureKeyVaultSecret",
 				"store": {

@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "AzureKeyVault",
 		"typeProperties": {
-			"baseUrl": "https://adap-cz-adi-kv-dev.vault.azure.net/"
+			"baseUrl": "__kvurl__"
 		}
 	}
 }
