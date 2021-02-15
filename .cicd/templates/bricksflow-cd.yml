@@ -22,7 +22,7 @@ jobs:
             # get Databricks variables (url, orgId)
             - task: AzureCLI@2
               name: getDbxVars
-              displayName: Get Databricks variables
+              displayName: Get Databricks Workspace variables
               inputs:
                 azureSubscription: ${{ parameters.serviceConnectionName }}
                 scriptType: 'bash'
@@ -55,7 +55,7 @@ jobs:
                   cat src/__myproject__/_config/config_$(ENV).yaml
             # environment initialization
             - task: Bash@3
-              displayName: 'env-init.sh execute'
+              displayName: 'Python environment initialization'
               inputs:
                 targetType: inline
                 script: |
@@ -65,7 +65,7 @@ jobs:
                   ./env-init.sh -y --verbose
             # deployment of notebooks to Dbx workspace
             - task: Bash@3
-              displayName: 'Notebooks Deployment'
+              displayName: 'Notebooks deployment'
               inputs:
                 targetType: inline
                 script: |
