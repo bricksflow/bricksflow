@@ -21,9 +21,9 @@ jobs:
       azureSubscription: ${{ parameters.serviceConnectionName }}
       KeyVaultName: '$(KEYVAULT_NAME)'
       SecretsFilter: 'unit-dbx-token'
-  # envrionment initialization
+  # environment initialization
   - task: Bash@3
-    displayName: 'env-init.sh execute'
+    displayName: 'Python environment initialization'
     inputs:
       targetType: inline
       script: |
@@ -31,19 +31,20 @@ jobs:
         sed -i 's/DBX_TOKEN=/DBX_TOKEN=$(unit-dbx-token)/g' .env
         export SHELL=$SHELL
         ./env-init.sh -y --verbose
-#  - task: Bash@3
-#    displayName: 'Testing coding standards'
-#    inputs:
-#      targetType: inline
-#      script: |
-#        eval "$(conda shell.bash hook)"
-#        conda activate $PWD/.venv
-#        source $HOME/.poetry/env
-#        poe black-check
-#        poe flake8
+  # check coding standards
+  - task: Bash@3
+    displayName: 'Testing coding standards'
+    inputs:
+      targetType: inline
+      script: |
+        eval "$(conda shell.bash hook)"
+        conda activate $PWD/.venv
+        source $HOME/.poetry/env
+        poe black-check
+        poe flake8
   # run Container tests
   - task: Bash@3
-    displayName: 'Container tests'
+    displayName: 'Running container tests'
     inputs:
       targetType: inline
       script: |
