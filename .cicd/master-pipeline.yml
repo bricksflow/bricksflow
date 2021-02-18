@@ -1,5 +1,3 @@
-name: $(BuildDefinitionName)_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
-
 resources:
   repositories:
     - repository: adi
@@ -9,12 +7,19 @@ resources:
 variables:
   # read main variables from infra variables definition
   - template: .cicd/variables/variables.yml@adi
-
+  # defined variables
+  # run number
+  - name: Build.Version
+    value:  $[counter(0)]
+  # current branch name based on head
   - name: CURRENT_BRANCH
     ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/') }}:
       value: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
     ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
       value: $[ replace(variables['System.PullRequest.SourceBranch'], 'refs/heads/', '') ]
+
+# build name based on pipeline name, source branch, date and run number
+name: "$(BuildDefinitionName)_$(SourceBranchName)_$(date:yyyyMMdd).$(Build.Version)"
 
 trigger:
   branches:
@@ -57,7 +62,8 @@ stages:
   - stage: DataFactoryCDprod
     displayName: Deploy Data Factory to prod environment
     dependsOn: DataFactoryCDdev
-    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+    # build version condition to prevent running prod stage on init commit
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'), ne(variables['Build.Version'], 0))
     variables:
       - template: .cicd/variables/variables-prod.yml@adi
     jobs:
@@ -103,7 +109,8 @@ stages:
   - stage: BricksflowCDprod
     displayName: Deploy Bricksflow to prod environment
     dependsOn: BricksflowCDdev
-    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+    # build version condition to prevent running prod stage on init commit
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'), ne(variables['Build.Version'], 0))
     variables:
       - template: .cicd/variables/variables-prod.yml@adi
     jobs:
