@@ -1,7 +1,4 @@
 parameters:
-  myparameter:
-    myvalue: 'This is a sample string config value'
-
   datalake:
     basePath: '/%kernel.environment%'
 

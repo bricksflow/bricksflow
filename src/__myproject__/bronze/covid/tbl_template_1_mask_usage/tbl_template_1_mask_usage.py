@@ -4,12 +4,6 @@
 
 # COMMAND ----------
 
-# MAGIC %md
-# MAGIC
-# MAGIC ## Requirements for running this notebook
-
-# COMMAND ----------
-
 # MAGIC %md ## Running the first Bricksflow-powered notebook
 
 # COMMAND ----------
@@ -34,9 +28,21 @@ from datalakebundle.table.TableManager import TableManager
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC
+# MAGIC #### Creating empty databases
+
+# COMMAND ----------
+
 spark.sql(f"create database if not exists {os.environ['APP_ENV']}_bronze_covid;")  # noqa: F821
 spark.sql(f"create database if not exists {os.environ['APP_ENV']}_silver_covid;")  # noqa: F821
 spark.sql(f"create database if not exists {os.environ['APP_ENV']}_gold_reporting;")  # noqa: F821
+
+# COMMAND ----------
+
+# MAGIC %md #### Reading a CSV file
+# MAGIC
+# MAGIC Let's use `@dataFrameLoader` notebook function to load our first data! Notice how the `logger` object is used to print logging information to the output.
 
 # COMMAND ----------
 
@@ -55,7 +61,11 @@ def read_csv_mask_usage(source_csv_path: str, spark: SparkSession, logger: Logge
 
 # COMMAND ----------
 
-# MAGIC %md #### Using display=True to display transformation outputs
+# MAGIC %md
+# MAGIC
+# MAGIC #### Transform data by adding new column
+# MAGIC
+# MAGIC Using the `@transformation` notebook function. Notice the usage of `display=True` to display transformation outputs
 
 # COMMAND ----------
 
@@ -68,7 +78,13 @@ def add_column_insert_ts(df: DataFrame, logger: Logger):
 
 # COMMAND ----------
 
-# MAGIC %md #### Saving results to fresh table
+# MAGIC %md
+# MAGIC
+# MAGIC #### Saving results to fresh table
+# MAGIC
+# MAGIC In Bricksflow it is recommended to **work with Hive tables rather than datalake paths**. Hive table has explicit schema which is validated when new rows are inserted into table.
+# MAGIC
+# MAGIC In the following function, the `bronze_covid.tbl_template_1_mask_usage` table gets (re)created using schema defined in the associated *schema.py* file.
 
 # COMMAND ----------
 

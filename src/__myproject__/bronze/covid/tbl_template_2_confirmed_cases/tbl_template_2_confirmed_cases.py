@@ -1,6 +1,9 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Sample notebook #2: Tables over files
+# MAGIC
+# MAGIC # Sample notebook #2: Configuration, appending new data
+# MAGIC
+# MAGIC In this notebook, you will learn how to **use and change configuration parameters**.
 
 # COMMAND ----------
 
@@ -11,7 +14,7 @@
 from logging import Logger
 from pyspark.sql import SparkSession
 from pyspark.sql.dataframe import DataFrame
-from datalakebundle.notebook.decorators import dataFrameLoader, transformation, dataFrameSaver, tableParams
+from datalakebundle.notebook.decorators import dataFrameLoader, transformation, dataFrameSaver, notebookFunction, tableParams
 from datalakebundle.table.TableManager import TableManager
 
 # COMMAND ----------
@@ -21,6 +24,26 @@ from datalakebundle.table.TableManager import TableManager
 def read_csv_covid_confirmed_usafacts(source_csv_path: str, spark: SparkSession, logger: Logger):
     logger.info(f"Reading CSV from source path: `{source_csv_path}`.")
     return spark.read.format("csv").option("header", "true").option("inferSchema", "true").load(source_csv_path).limit(10)  # only for test
+
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC
+# MAGIC #### Passing configuration to notebook function
+# MAGIC
+# MAGIC The following function uses the `"%datalake.basePath%"` config parameter. To change it:
+# MAGIC
+# MAGIC 1. [Setup your local development environment](https://datasentics.github.io/ai-platform-docs/data-pipelines-workflow/local-project-setup/)
+# MAGIC 1. Edit the `src/__myproject__/_config/config.yaml` file on your local machine
+# MAGIC 1. Deploy changes back to Databricks by using the `console dbx:deploy` command.
+
+# COMMAND ----------
+
+
+@notebookFunction("%datalake.basePath%", read_csv_covid_confirmed_usafacts)
+def add_parameter_from_config(base_path, df: DataFrame, logger: Logger):
+    logger.info(f"Datalake base path: {base_path}")
 
 
 # COMMAND ----------
@@ -35,7 +58,7 @@ def rename_columns(df: DataFrame):
 
 # MAGIC %md
 # MAGIC
-# MAGIC #### Working with dataframes outside the notebook function
+# MAGIC #### Working with dataframes outside notebook function
 # MAGIC
 # MAGIC While debugging, you can also work directly with dataframes produced by specific notebook function. The dataframe name always follows the `[function name]_df` format.
 
@@ -49,7 +72,11 @@ print(rename_columns_df.printSchema())  # noqa: F821
 
 # COMMAND ----------
 
-# MAGIC %md #### Appending data to existing table
+# MAGIC %md
+# MAGIC
+# MAGIC #### Appending data to existing table
+# MAGIC
+# MAGIC In the following function, `table_manager.createIfNotExists("bronze_covid.tbl_template_2_confirmed_cases")` is used to make sure that the table always exists.
 
 # COMMAND ----------
 
@@ -59,9 +86,8 @@ def save_table_bronze_covid_tbl_template_2_confirmed_cases(df: DataFrame, logger
     output_table_name = table_manager.getName("bronze_covid.tbl_template_2_confirmed_cases")
     schema = table_manager.getConfig("bronze_covid.tbl_template_2_confirmed_cases").schema
 
-    table_manager.createIfNotExists(
-        "bronze_covid.tbl_template_2_confirmed_cases"
-    )  # make sure, that the table is created only if not exist yet (first run of the notebook)
+    # make sure, that the table is created only if not exist yet (first run of the notebook)
+    table_manager.createIfNotExists("bronze_covid.tbl_template_2_confirmed_cases")
 
     logger.info(f"Saving data to table: {output_table_name}")
 

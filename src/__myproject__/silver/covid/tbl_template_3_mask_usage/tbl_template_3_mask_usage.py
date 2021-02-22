@@ -1,22 +1,16 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC <img src="https://github.com/richardcerny/bricksflow/raw/rc-bricksflow2.1/docs/img/databricks_icon.png?raw=true" width=100/>
-# MAGIC # Bricksflow example 3.
-# MAGIC
-# MAGIC ## Bricksflow Development flow - DEMO
-# MAGIC There is a standard process of developing pipelines using Bricksflow. The aim is to use SW Engineering practices while still working in interactively in Databricks notebooks. Follow schema bellow while using Bricksflow.
-# MAGIC
-# MAGIC If you want to get more info about the process check Bricksflow User training video - [Link](https://web.microsoftstream.com/video/e8e3ed9b-7944-4ea2-b314-8f0694853fcf)
-# MAGIC <img src="https://github.com/richardcerny/bricksflow/raw/rc-bricksflow2.1/docs/img/development-flow.png?raw=true" width=1200/>
-# MAGIC
+# MAGIC # Sample notebook #3: Widgets
 
 # COMMAND ----------
 
-# MAGIC %md ## Common console commands you would use:
-# MAGIC - `console dbx:deploy --env=dev` to upload notebooks & configs from local to Databricks
-# MAGIC - `console dbx:workspace:export --env=dev` to download notebooks from Databricks to local
+# MAGIC %md
+# MAGIC #### Widgets
+# MAGIC Many people love using [Databricks widgets](https://docs.databricks.com/notebooks/widgets.html) to parametrize notebooks. To use widgets in Bricksflow, you should put them into a `@notebookFunction`.
 # MAGIC
-# MAGIC Tip: By executing `console` you get list of available commands that you can use
+# MAGIC <img src="https://github.com/bricksflow/bricksflow/raw/master/docs/widgets.png?raw=true" width=1000/>
+# MAGIC
+# MAGIC Don't forget to check  or run command `dbutils.widgets.help()` to see options you have while working with widget.
 
 # COMMAND ----------
 
@@ -27,17 +21,36 @@
 from pyspark.sql import functions as f
 from datetime import datetime
 from logging import Logger
+from pyspark.dbutils import DBUtils  # enables to use Datbricks dbutils within functions
 from pyspark.sql import SparkSession
 from pyspark.sql.dataframe import DataFrame
-from datalakebundle.notebook.decorators import dataFrameLoader, transformation, dataFrameSaver
+from datalakebundle.notebook.decorators import dataFrameLoader, transformation, dataFrameSaver, notebookFunction
 from datalakebundle.table.TableManager import TableManager
 
 # COMMAND ----------
 
+# MAGIC %md #### Creating a widget
 
-@dataFrameLoader(display=False)
-def read_table_bronze_covid_tbl_template_1_mask_usage(spark: SparkSession, table_manager: TableManager):
-    return spark.read.table(table_manager.getName("bronze_covid.tbl_template_1_mask_usage"))
+# COMMAND ----------
+
+
+@notebookFunction()
+def create_input_widgets(dbutils: DBUtils):
+    dbutils.widgets.dropdown("base_year", "2020", ["2018", "2019", "2020", "2021"], "Base year")
+
+
+# COMMAND ----------
+
+
+@dataFrameLoader(display=True)
+def read_table_bronze_covid_tbl_template_1_mask_usage(spark: SparkSession, table_manager: TableManager, logger: Logger, dbutils: DBUtils):
+    base_year = dbutils.widgets.get("base_year")
+
+    logger.info(f"Using base year: {base_year}")
+
+    df = spark.read.table(table_manager.getName("bronze_covid.tbl_template_1_mask_usage"))
+
+    return df.filter(f.col("INSERT_TS") >= base_year)
 
 
 # COMMAND ----------
@@ -51,22 +64,11 @@ def add_execution_datetime(df: DataFrame):
 # COMMAND ----------
 
 
-@transformation("%myparameter.myvalue%", add_execution_datetime, display=True)
-def add_parameter_from_config(config_yaml_parameter, df: DataFrame):
-    print(config_yaml_parameter)
-    return df.withColumn("CONFIG_YAML_PARAMETER", f.lit(config_yaml_parameter))
-
-
-# COMMAND ----------
-
-
-@dataFrameSaver(add_parameter_from_config)
+@dataFrameSaver(add_execution_datetime)
 def save_table_silver_covid_tbl_template_3_mask_usage(df: DataFrame, logger: Logger, table_manager: TableManager):
     output_table_name = table_manager.getName("silver_covid.tbl_template_3_mask_usage")
-    if table_manager.exists("silver_covid.tbl_template_3_mask_usage"):
-        logger.info(f"Table {output_table_name} exists. Appending...")
-    else:
-        table_manager.create("silver_covid.tbl_template_3_mask_usage")
+
+    table_manager.recreate("silver_covid.tbl_template_3_mask_usage")
 
     logger.info(f"Saving data to table: {output_table_name}")
     (
@@ -78,8 +80,16 @@ def save_table_silver_covid_tbl_template_3_mask_usage(df: DataFrame, logger: Log
             "FREQUENTLY",
             "ALWAYS",
             "EXECUTE_DATETIME",
-            "CONFIG_YAML_PARAMETER",
         )
         .write.option("partitionOverwriteMode", "dynamic")
         .insertInto(output_table_name)
     )
+
+
+# COMMAND ----------
+
+# MAGIC %md ### Removing all widgets
+
+# COMMAND ----------
+
+# dbutils.widgets.removeAll()

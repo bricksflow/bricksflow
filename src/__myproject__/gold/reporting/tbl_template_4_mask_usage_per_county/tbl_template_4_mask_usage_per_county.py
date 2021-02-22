@@ -1,20 +1,7 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC <img src="https://github.com/richardcerny/bricksflow/raw/rc-bricksflow2.1/docs/img/databricks_icon.png?raw=true" width=100/>
-# MAGIC # Bricksflow example 4.
+# MAGIC # Sample notebook #4: Joining multiple dataframes
 # MAGIC
-# MAGIC ## Productionalizing notebook in Bricksflow
-# MAGIC It always takse some time to productionalize notebook.
-# MAGIC What is usually necesary to do:
-# MAGIC - cleaning a code from testing part
-# MAGIC - comments some part of code
-# MAGIC - all code is in functions
-# MAGIC - remove unnecesary comments
-# MAGIC - resolve ToDos
-# MAGIC - replace hardcoded variable with config parameters
-# MAGIC - test that it still works the same after clean up
-# MAGIC - use linting tools (pylint, black, flake8)
-# MAGIC - ...
 
 # COMMAND ----------
 
@@ -55,7 +42,7 @@ def read_table_silver_covid_tbl_template_3_mask_usage(spark: SparkSession, table
 
 # COMMAND ----------
 
-# MAGIC %md ### How to join more dataframes using @transformation?
+# MAGIC %md #### Joining multiple dataframes in `@transformation`
 
 # COMMAND ----------
 
@@ -70,7 +57,7 @@ def join_covid_datasets(df1: DataFrame, df2: DataFrame):
 
 @transformation(join_covid_datasets, display=False)
 def agg_avg_mask_usage_per_county(df: DataFrame):
-    return df.groupBy("EXECUTE_DATE", "County_Name", "CONFIG_YAML_PARAMETER").agg(
+    return df.groupBy("EXECUTE_DATE", "County_Name").agg(
         f.avg("NEVER").alias("AVG_NEVER"),
         f.avg("RARELY").alias("AVG_RARELY"),
         f.avg("SOMETIMES").alias("AVG_SOMETIMES"),
@@ -99,7 +86,6 @@ def save_table_gold_tbl_template_4_mask_usage_per_count(df: DataFrame, logger: L
         df.select(
             "EXECUTE_DATE",
             "COUNTY_NAME",
-            "CONFIG_YAML_PARAMETER",
             "AVG_NEVER",
             "AVG_RARELY",
             "AVG_SOMETIMES",

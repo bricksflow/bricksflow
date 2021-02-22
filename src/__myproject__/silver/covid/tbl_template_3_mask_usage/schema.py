@@ -74,15 +74,5 @@ def getSchema():  # noqa: N802
                     "comment": "",
                 },
             ),
-            t.StructField(
-                "CONFIG_YAML_PARAMETER",
-                t.StringType(),
-                False,
-                {
-                    "source_column": "",
-                    "source_table": "",
-                    "comment": "",
-                },
-            ),
         ]
     )
