@@ -20,3 +20,8 @@ parameters:
       gold_reporting.tbl_template_4_mask_usage_per_county:
 
       gold_solutions.template_5_solution:
+
+  featurestorebundle:
+    entities:
+      - name: 'customer'
+        historization: True
