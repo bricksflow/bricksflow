@@ -23,7 +23,7 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.7.1,<4.0.0"
 databricks-bundle = "^0.7.0"
-datalake-bundle = ">=0.5.0a18"
+datalake-bundle = "0.5.*"
 injecta = "^0.9.2"
 pandas = "1.0.1"
 numpy = "1.18.1"
