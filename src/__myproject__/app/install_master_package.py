@@ -3,4 +3,4 @@
 
 # COMMAND ----------
 
-# MAGIC %installMasterPackageWhl
+# MAGIC %install_master_package_whl

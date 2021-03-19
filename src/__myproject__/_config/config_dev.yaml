@@ -3,8 +3,8 @@ imports:
 
 parameters:
   databricks:
-    address: https://adb-776384709737263.3.azuredatabricks.net
-    clusterId: '0106-164555-acing965'
-    orgId: '776384709737263' # Azure Databricks only
+    address: https://adb-1381789872102367.7.azuredatabricks.net
+    cluster_id: '0215-134530-loxes449'
+    org_id: '1381789872102367' # Azure Databricks only
     workspace:
-      baseDir: '/__myproject__/{currentBranch}'
+      base_dir: '/__myproject__/{current_branch}'

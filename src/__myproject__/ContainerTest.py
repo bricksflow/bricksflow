@@ -1,16 +1,16 @@
 import unittest
-from injecta.testing.servicesTester import testServices
-from pyfonycore.bootstrap import bootstrappedContainer
+from injecta.testing.services_tester import test_services
+from pyfonycore.bootstrap import bootstrapped_container
 
 
 class ContainerTest(unittest.TestCase):
     def test_env_dev(self):
-        container = bootstrappedContainer.init("dev")
-        testServices(container)
+        container = bootstrapped_container.init("dev")
+        test_services(container)
 
     def test_env_prod(self):
-        container = bootstrappedContainer.init("prod")
-        testServices(container)
+        container = bootstrapped_container.init("prod")
+        test_services(container)
 
 
 if __name__ == "__main__":

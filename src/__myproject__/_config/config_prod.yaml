@@ -4,10 +4,10 @@ imports:
 parameters:
   databricks:
     address: https://westeurope.azuredatabricks.net
-    clusterId: '[Your PROD cluster ID]'
-    orgId: '[Your PROD orgId]' # Azure Databricks only
+    cluster_id: '[Your PROD cluster ID]'
+    org_id: '[Your PROD org_id]' # Azure Databricks only
     workspace:
-      baseDir: '/__myproject__'
+      base_dir: '/__myproject__'
 
   datalakebundle:
     notebook:

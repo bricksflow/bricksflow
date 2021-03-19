@@ -23,7 +23,7 @@ from pyspark.sql import functions as f
 from logging import Logger
 from pyspark.sql import SparkSession
 from pyspark.sql.dataframe import DataFrame
-from datalakebundle.notebook.decorators import dataFrameLoader, transformation, dataFrameSaver, tableParams
+from datalakebundle.notebook.decorators import data_frame_loader, transformation, data_frame_saver, table_params
 from datalakebundle.table.TableManager import TableManager
 
 # COMMAND ----------
@@ -42,12 +42,12 @@ spark.sql(f"create database if not exists {os.environ['APP_ENV']}_gold_reporting
 
 # MAGIC %md #### Reading a CSV file
 # MAGIC
-# MAGIC Let's use `@dataFrameLoader` notebook function to load our first data! Notice how the `logger` object is used to print logging information to the output.
+# MAGIC Let's use `@data_frame_loader` notebook function to load our first data! Notice how the `logger` object is used to print logging information to the output.
 
 # COMMAND ----------
 
 
-@dataFrameLoader(tableParams("bronze_covid.tbl_template_1_mask_usage").source_csv_path)
+@data_frame_loader(table_params("bronze_covid.tbl_template_1_mask_usage").source_csv_path)
 def read_csv_mask_usage(source_csv_path: str, spark: SparkSession, logger: Logger):
     logger.info(f"Reading CSV from source path: `{source_csv_path}`.")
     return (
@@ -89,12 +89,12 @@ def add_column_insert_ts(df: DataFrame, logger: Logger):
 # COMMAND ----------
 
 
-@dataFrameSaver(add_column_insert_ts)
+@data_frame_saver(add_column_insert_ts)
 def save_table_bronze_covid_tbl_template_1_mask_usage(df: DataFrame, logger: Logger, table_manager: TableManager):
     # Recreate = remove table and create again
     table_manager.recreate("bronze_covid.tbl_template_1_mask_usage")
 
-    output_table_name = table_manager.getName("bronze_covid.tbl_template_1_mask_usage")
+    output_table_name = table_manager.get_name("bronze_covid.tbl_template_1_mask_usage")
 
     logger.info(f"Saving data to table: {output_table_name}")
 

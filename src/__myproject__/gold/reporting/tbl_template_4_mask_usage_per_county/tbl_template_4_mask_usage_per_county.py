@@ -13,16 +13,16 @@ from pyspark.sql import functions as f
 from logging import Logger
 from pyspark.sql import SparkSession
 from pyspark.sql.dataframe import DataFrame
-from datalakebundle.notebook.decorators import dataFrameLoader, transformation, dataFrameSaver
+from datalakebundle.notebook.decorators import data_frame_loader, transformation, data_frame_saver
 from datalakebundle.table.TableManager import TableManager
 
 # COMMAND ----------
 
 
-@dataFrameLoader(display=True)
+@data_frame_loader(display=True)
 def read_bronze_covid_tbl_template_2_confirmed_case(spark: SparkSession, table_manager: TableManager):
     return (
-        spark.read.table(table_manager.getName("bronze_covid.tbl_template_2_confirmed_cases"))
+        spark.read.table(table_manager.get_name("bronze_covid.tbl_template_2_confirmed_cases"))
         .select("countyFIPS", "County_Name", "State", "stateFIPS")
         .dropDuplicates()
     )
@@ -31,10 +31,10 @@ def read_bronze_covid_tbl_template_2_confirmed_case(spark: SparkSession, table_m
 # COMMAND ----------
 
 
-@dataFrameLoader(display=True)
+@data_frame_loader(display=True)
 def read_table_silver_covid_tbl_template_3_mask_usage(spark: SparkSession, table_manager: TableManager):
     return (
-        spark.read.table(table_manager.getName("silver_covid.tbl_template_3_mask_usage"))
+        spark.read.table(table_manager.get_name("silver_covid.tbl_template_3_mask_usage"))
         .limit(10)  # only for test
         .withColumn("EXECUTE_DATE", f.to_date(f.col("EXECUTE_DATETIME")))
     )
@@ -77,9 +77,9 @@ def standardize_dataset(df: DataFrame):
 # COMMAND ----------
 
 
-@dataFrameSaver(standardize_dataset)
+@data_frame_saver(standardize_dataset)
 def save_table_gold_tbl_template_4_mask_usage_per_count(df: DataFrame, logger: Logger, table_manager: TableManager):
-    output_table_name = table_manager.getName("gold_reporting.tbl_template_4_mask_usage_per_county")
+    output_table_name = table_manager.get_name("gold_reporting.tbl_template_4_mask_usage_per_county")
     table_manager.recreate("gold_reporting.tbl_template_4_mask_usage_per_county")
     logger.info(f"Saving data to table: {output_table_name}")
     (

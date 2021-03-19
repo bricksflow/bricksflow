@@ -2,11 +2,11 @@ parameters:
   dbxdeploy:
     source:
       notebooks:
-        baseDir: 'src/__myproject__'
+        base_dir: 'src/__myproject__'
     target:
       workspace:
-        baseDir: '%databricks.workspace.baseDir%'
+        base_dir: '%databricks.workspace.base_dir%'
     databricks:
       host: '%databricks.address%'
       token: '%env(DBX_TOKEN)%'
-      clusterId: '%databricks.clusterId%'
+      cluster_id: '%databricks.cluster_id%'

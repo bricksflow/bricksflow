@@ -2,11 +2,11 @@
 parameters:
   datalakebundle:
     notebook:
-      moduleTemplate: '%bricksflow.rootModule.name%.{layer}.{domain}.{tableIdentifier}.{tableIdentifier}'
+      module_template: '%daipe.root_module.name%.{layer}.{domain}.{table_identifier}.{table_identifier}'
     table:
-      nameTemplate: '%kernel.environment%_{identifier}'
+      name_template: '%kernel.environment%_{identifier}'
       defaults:
-        basePath: '%datalake.basePath%' # from config.yaml
-        layer: !expr 'dbIdentifier[:dbIdentifier.find("_")]' # bronze/silver/gold
-        domain: !expr 'dbIdentifier[dbIdentifier.find("_") + 1:]' # covid
-        targetPath: !expr 'basePath + "/" + layer + "/" + domain + "/" + tableIdentifier + ".delta"'
+        base_path: '%datalake.base_path%' # from config.yaml
+        layer: !expr 'db_identifier[:db_identifier.find("_")]' # bronze/silver/gold
+        domain: !expr 'db_identifier[db_identifier.find("_") + 1:]' # covid
+        target_path: !expr 'base_path + "/" + layer + "/" + domain + "/" + table_identifier + ".delta"'

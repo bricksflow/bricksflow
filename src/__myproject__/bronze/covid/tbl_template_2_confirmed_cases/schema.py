@@ -1,7 +1,7 @@
 import pyspark.sql.types as t
 
 
-def getSchema():  # noqa: N802
+def get_schema():  # noqa: N802
     return t.StructType(
         [
             t.StructField("countyFIPS", t.IntegerType(), True),

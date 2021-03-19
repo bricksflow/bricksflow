@@ -1,6 +1,6 @@
 parameters:
   datalake:
-    basePath: '/%kernel.environment%'
+    base_path: '/%kernel.environment%'
 
   datalakebundle:
     tables:

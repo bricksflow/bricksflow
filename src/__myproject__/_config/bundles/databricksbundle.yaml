@@ -1,9 +1,9 @@
 parameters:
   databricksbundle:
-    databricksConnect:
+    databricks_connect:
       connection:
         address: '%databricks.address%'
-        clusterId: '%databricks.clusterId%'
-        orgId: '%databricks.orgId%'
+        cluster_id: '%databricks.cluster_id%'
+        org_id: '%databricks.org_id%'
     notebook:
-      testingPath: '/foo/bar/bronze/covid/tbl_template_2_confirmed_cases/tbl_template_2_confirmed_cases.py'
+      testing_path: '/foo/bar/bronze/covid/tbl_template_2_confirmed_cases/tbl_template_2_confirmed_cases.py'
