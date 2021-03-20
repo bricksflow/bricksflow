@@ -23,7 +23,7 @@ from pyspark.sql import functions as f
 from logging import Logger
 from pyspark.sql import SparkSession
 from pyspark.sql.dataframe import DataFrame
-from datalakebundle.notebook.decorators import data_frame_loader, transformation, data_frame_saver, table_params
+from datalakebundle.notebook.decorators import notebook_function, data_frame_loader, transformation, data_frame_saver, table_params
 from datalakebundle.table.TableManager import TableManager
 
 # COMMAND ----------
@@ -34,9 +34,13 @@ from datalakebundle.table.TableManager import TableManager
 
 # COMMAND ----------
 
-spark.sql(f"create database if not exists {os.environ['APP_ENV']}_bronze_covid;")  # noqa: F821
-spark.sql(f"create database if not exists {os.environ['APP_ENV']}_silver_covid;")  # noqa: F821
-spark.sql(f"create database if not exists {os.environ['APP_ENV']}_gold_reporting;")  # noqa: F821
+
+@notebook_function()
+def init(spark: SparkSession):
+    spark.sql(f"create database if not exists {os.environ['APP_ENV']}_bronze_covid;")  # noqa: F821
+    spark.sql(f"create database if not exists {os.environ['APP_ENV']}_silver_covid;")  # noqa: F821
+    spark.sql(f"create database if not exists {os.environ['APP_ENV']}_gold_reporting;")  # noqa: F821
+
 
 # COMMAND ----------
 
