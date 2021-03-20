@@ -1,7 +1,7 @@
 import pyspark.sql.types as t
 
 
-def get_schema():  # noqa: N802
+def get_schema():
     return t.StructType(
         [
             t.StructField("EXECUTE_DATE", t.DateType(), True),
