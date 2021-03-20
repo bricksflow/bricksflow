@@ -4,6 +4,5 @@ parameters:
       connection:
         address: '%databricks.address%'
         cluster_id: '%databricks.cluster_id%'
-        org_id: '%databricks.org_id%'
     notebook:
       testing_path: '/foo/bar/bronze/covid/tbl_template_2_confirmed_cases/tbl_template_2_confirmed_cases.py'

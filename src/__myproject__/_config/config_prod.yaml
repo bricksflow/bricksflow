@@ -5,7 +5,6 @@ parameters:
   databricks:
     address: https://westeurope.azuredatabricks.net
     cluster_id: '[Your PROD cluster ID]'
-    org_id: '[Your PROD org_id]' # Azure Databricks only
     workspace:
       base_dir: '/__myproject__'
 
