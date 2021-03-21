@@ -20,10 +20,6 @@ from __myproject__.bronze.covid.tbl_template_2_confirmed_cases.csv_schema import
 
 # COMMAND ----------
 
-from pyspark.sql.types import StructType, IntegerType, StringType, StructField
-
-# COMMAND ----------
-
 
 @data_frame_loader(table_params("bronze_covid.tbl_template_2_confirmed_cases").source_csv_path, display=False)
 def read_csv_covid_confirmed_usafacts(source_csv_path: str, spark: SparkSession, logger: Logger):
